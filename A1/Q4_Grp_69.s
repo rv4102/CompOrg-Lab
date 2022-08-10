@@ -1,3 +1,10 @@
+# Assignment 1
+# Question 4
+# Sem 5
+# Group 69
+# Rushil Venkateswar (20CS30045)
+# Jatin Gupta (20CS10087)
+
     .globl main
 
     .data
@@ -46,17 +53,19 @@ update_i:
     b while
 
 if_factor:
-    bne $s5, $s0, update_sum_1
-    beq $s5, $s0, update_sum_2
+    bne $s5, $s0, update_sum_1 # if temp != n then 
+    beq $s5, $s0, update_sum_2  # else
     b update_i
 
+# this does the operation sum = sum + i + (int) n/i
 update_sum_1:
     add $s1, $s1, $s2 # sum = sum + i
     add $s1, $s1, $s4 # sum = sum + n/i
     b update_i
 
+# this does the operation sum = sum + i
 update_sum_2:
-    add $s1, $s1, $s2 # sum = sum+i
+    add $s1, $s1, $s2 # sum = sum + i
     b update_i
 
 check_perfect:

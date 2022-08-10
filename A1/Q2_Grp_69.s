@@ -1,3 +1,10 @@
+# Assignment 1
+# Question 2
+# Sem 5
+# Group 69
+# Rushil Venkateswar (20CS30045)
+# Jatin Gupta (20CS10087)
+
     .globl main
 
 # .data to store the display messages in variables
@@ -48,25 +55,26 @@ main:
 
 # while loop to calculate the gcd of a and b 
 while:
-    #if b is equal to 0, gcd = a
+    # if b is equal to 0, gcd = a
     beq $s1, 0, print_ans
-    #if a>b, updating a
+    # if a>b, updating a
     bgt $s0, $s1, update_a
-    #if a<=b, updating b
+    # if a<=b, updating b
     ble $s0, $s1, update_b
 
 # updating the value of a
 update_a:
     sub $s0, $s0, $s1
-    b while     #to continue the while loop
+    b while     # to continue the while loop
 
 # updating the value of b
 update_b:
     sub $s1, $s1, $s0
-    b while     #to continue the while loop
+    b while     # to continue the while loop
 
 # printing gcd, i.e final value of a after the while loop
 print_ans:
+    # print "GCD of the two integers is: "
     li $v0, 4
     la $a0, prompt3
     syscall
@@ -82,8 +90,9 @@ print_ans:
     li $v0, 10
     syscall
 
-#printing the gcd when a is equal to zero, i.e value of b
+# printing the gcd when a is equal to zero, i.e value of b
 print_ans_b:
+    # print "GCD of the two integers is: "
     li $v0, 4
     la $a0, prompt3
     syscall
@@ -99,7 +108,7 @@ print_ans_b:
     li $v0, 10
     syscall
 
-#printing the error when one of the number is negative
+# printing the error when one of the number is negative
 error_terminate:
     li $v0, 4
     la $a0, error
