@@ -54,3 +54,11 @@ main:
     move $a0, $s0
     move $a1, $s1
 
+    #calling multiply_booth
+    jal multiply_booth
+
+
+multiply_booth:
+    
+    
+    jr $ra
