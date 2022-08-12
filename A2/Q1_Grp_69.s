@@ -50,4 +50,8 @@ main:
     # check input
     blt $s1, -32768, prompt_err
 
-#hello
+    # store inputs in a0 and a1 registers for function call
+    move $a0, $s0
+    move $a1, $s1
+
+#fhfjfj
