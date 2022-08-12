@@ -54,8 +54,10 @@ main:
     move $a0, $s0
     move $a1, $s1
 
-    #calling multiply_booth
+    # calling multiply_booth
     jal multiply_booth
+
+    b print_result
 
 multiply_booth:
     # load the numbers as local variables
@@ -65,60 +67,70 @@ multiply_booth:
 
     li $t2, 0 # set previous LSB as 0
     li $t3, 0 # current LSB
-    # get current LSB
-    div $t0, 2 # n1 mod 2
-    mfhi $t3 # move remainder to $t3
+    andi $t3, $t0, 1 # t3 = n1 & 1
 
-    
+    li $s0, 0 # counter = 0
+
+    while:
+        beq $s0, 16, end # if counter == 16, break
+        add $s0, $s0, 1 # counter++
+        beq $t2, $t3, 00_11_pass # if 11 or 00 then branch 
+        blt $t2, $t3, 10_pass # prev is 0, curr is 1
+        b 01_pass
+
+    end:
+        li $s0, $a0 # store result in s0
 
     jr $ra
 
-while:
-
-
-00_pass:
+00_11_pass:
     # get previous LSB
-    div $t0, 2 # n1 mod 2
-    mfhi $t2 # store previous LSB
+    andi $t2, $t0, 1 # t2 = prev_prod & 1
 
     # set current LSB
     srl $t3, $t0, 1 # t3 = t0 >> 1
-    div $t0, 2 # n1 mod 2
-    mfhi $t3 # store current LSB
+    andi $t3, $t0, 1 # t3 = curr_prod & 1
 
-11_pass:
-    # get previous LSB
-    div $t0, 2 # n1 mod 2
-    mfhi $t2 # store previous LSB
-
-    # set current LSB
-    srl $t3, $t0, 1 # t3 = t0 >> 1
-    div $t0, 2 # n1 mod 2
-    mfhi $t3 # store current LSB
+    b while
 
 01_pass:
     # add multiplicand to left half of product
     add $t0, $t0, $t1 # t0 = t0 + t1
 
     # get previous LSB
-    div $t0, 2 # n1 mod 2
-    mfhi $t2 # store previous LSB
+    andi $t2, $t0, 1 # t2 = prev_prod & 1
 
     # set current LSB
     srl $t3, $t0, 1 # t3 = t0 >> 1
-    div $t0, 2 # n1 mod 2
-    mfhi $t3 # store current LSB
-    j 
+    andi $t3, $t0, 1 # t3 = curr_prod & 1
+
+    b while
 
 10_pass:
     # subtract multiplicand from left half of product
     sub $t0, $t0, $t1 # t0 = t0 - t1
 
     # get previous LSB
-    div $t0, 2 # n1 mod 2
-    mfhi $t2 # store previous LSB
+    andi $t2, $t0, 1 # t2 = prev_prod & 1
 
     # set current LSB
     srl $t3, $t0, 1 # t3 = t0 >> 1
-    div $t0, 2 # n1 mod 2
-    mfhi $t3 # store current LSB
+    andi $t3, $t0, 1 # t3 = curr_prod & 1
+
+    b while
+
+print_result:
+    li $v0, 4
+    la $a0, result
+    syscall
+
+    li $v0, 1
+    la $a0, $s0
+    syscall
+
+    li $v0, 4
+    la $a0, newline
+    syscall
+
+    li $v0, 10
+    syscall
