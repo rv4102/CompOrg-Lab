@@ -54,4 +54,3 @@ main:
     move $a0, $s0
     move $a1, $s1
 
-#fhfjfj
