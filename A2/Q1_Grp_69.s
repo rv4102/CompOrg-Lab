@@ -57,8 +57,68 @@ main:
     #calling multiply_booth
     jal multiply_booth
 
-
 multiply_booth:
+    # load the numbers as local variables
+    move $t0, $a0 # multiplier
+    move $t1, $a1 # multiplicand
+    sll $t1, $t1, 16 # t1 = t1 << 16 (store lower half of 32 bit register in upper half of 32 bit register)
+
+    li $t2, 0 # set previous LSB as 0
+    li $t3, 0 # current LSB
+    # get current LSB
+    div $t0, 2 # n1 mod 2
+    mfhi $t3 # move remainder to $t3
+
     
-    
+
     jr $ra
+
+while:
+
+
+00_pass:
+    # get previous LSB
+    div $t0, 2 # n1 mod 2
+    mfhi $t2 # store previous LSB
+
+    # set current LSB
+    srl $t3, $t0, 1 # t3 = t0 >> 1
+    div $t0, 2 # n1 mod 2
+    mfhi $t3 # store current LSB
+
+11_pass:
+    # get previous LSB
+    div $t0, 2 # n1 mod 2
+    mfhi $t2 # store previous LSB
+
+    # set current LSB
+    srl $t3, $t0, 1 # t3 = t0 >> 1
+    div $t0, 2 # n1 mod 2
+    mfhi $t3 # store current LSB
+
+01_pass:
+    # add multiplicand to left half of product
+    add $t0, $t0, $t1 # t0 = t0 + t1
+
+    # get previous LSB
+    div $t0, 2 # n1 mod 2
+    mfhi $t2 # store previous LSB
+
+    # set current LSB
+    srl $t3, $t0, 1 # t3 = t0 >> 1
+    div $t0, 2 # n1 mod 2
+    mfhi $t3 # store current LSB
+    j 
+
+10_pass:
+    # subtract multiplicand from left half of product
+    sub $t0, $t0, $t1 # t0 = t0 - t1
+
+    # get previous LSB
+    div $t0, 2 # n1 mod 2
+    mfhi $t2 # store previous LSB
+
+    # set current LSB
+    srl $t3, $t0, 1 # t3 = t0 >> 1
+    div $t0, 2 # n1 mod 2
+    mfhi $t3 # store current LSB
