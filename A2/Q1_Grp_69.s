@@ -5,8 +5,6 @@
 # Rushil Venkateswar (20CS30045)
 # Jatin Gupta (20CS10087)
 
-    .globl main
-
 # .data to store the display messages in variables
     .data
 # display messages
@@ -23,6 +21,7 @@ newline:
 
 # .text for logic implementation
     .text
+.globl main
 main:
     # display prompt to enter 1st int
     li      $v0, 4
