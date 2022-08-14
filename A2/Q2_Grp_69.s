@@ -23,8 +23,19 @@ main:
     j read_input
 
 sort_array:
-    la $t1, array
-    li $s1, 10
+    li $s0, array
+    li $t0, 0
+    li $t1, 0
+    li $s1, 11
+    li $s2, 11
+    add $t2, $zero, $s0
+    add $t3, $zero, $s0
+    addi $s1, $s1, -1
+
+loop1:
+    li $t1, 0
+    addi $s2, $s2, -1
+    add $t3 ,$zero, $s0
 
 first_loop:
     beq $s1, $s2, 
