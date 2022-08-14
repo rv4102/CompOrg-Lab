@@ -1,5 +1,5 @@
 # Assignment 2
-# Question 1 (Implement Booth's Algorithm in MIPS)
+# Question 2 (Implement Bubble Sort in MIPS)
 # Sem 5 (Autumn 22-23)
 # Group 69
 # Rushil Venkateswar (20CS30045)
