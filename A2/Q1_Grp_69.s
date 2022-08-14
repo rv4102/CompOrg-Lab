@@ -29,10 +29,10 @@ main:
     la      $a0, prompt1
     syscall
 
-    # take input
+    # take 1st input
     li      $v0, 5
     syscall
-    move    $s0, $v0
+    move    $s0, $v0 # $s0 stores the first input number
 
     # check input
     bgt     $s0, 32767, print_err
@@ -43,10 +43,10 @@ main:
     la      $a0, prompt2
     syscall
 
-    # take input
+    # take 2nd input
     li      $v0, 5
     syscall
-    move    $s1, $v0
+    move    $s1, $v0 # $s1 stores the first input number
 
     # check input
     bgt     $s1, 32767, print_err
@@ -65,72 +65,75 @@ main:
     b       print_result
 
 multiply_booth:
-    # let $a0 be Q
-    # let $a1 be M
+    # let $a0 be Multiplier (This will act as the product)
+    # let $a1 be Multiplicand
 
     move    $v0, $zero # set $v0 as 0
     
     li      $t5, 1 # make temp = 1
     sll     $t5, $t5, 16 # left shift by 16 bits now temp = 2^16
     sub     $t5, $t5, 1 # temp-- (now temp has upper 16 bits as 0 and lower 16 bits as 1)
-    and     $a0, $a0, $t5 # mask a0 with temp
-    sll     $a1, $a1, 16 # num2 = num2 << 16 (store lower half of 32 bit register in upper half of 32 bit register)
+
+    and     $a0, $a0, $t5 # mask a0 with temp (upper half of $a0 is set as 0 and lower half of $a0 is the original multiplicand)
+    sll     $a1, $a1, 16 # num2 = num2 << 16 (shift lower 16 bits to upper 16 bits)
 
     li      $t2, 0 # set previous LSB as 0
     li      $t3, 0 # current LSB
-    andi    $t3, $a0, 1 # t3 = num1 & 1
+    andi    $t3, $a0, 1 # $t3 = $a0 & 1 (Get the current LSB)
 
-    li      $t4, 0 # counter = 0
+    li      $t4, 0 # set counter = 0
 
     while:
         beq     $t4, 16, end # if counter == 16, break
         add     $t4, $t4, 1 # counter++
+
         beq     $t2, $t3, pass_11_00 # if 11 or 00 then go to pass_11_00 
         blt     $t2, $t3, pass_10 # if prev is 0, curr is 1 then go to pass_10
         b       pass_01 # else go to pass_01
 
     end:
-        move    $v0, $a0
+        move    $v0, $a0 # Move product to $v0 before returning
 
     jr      $ra
 
 pass_11_00:
     # get previous LSB
-    andi    $t2, $a0, 1 # t2 = prev_prod & 1
+    andi    $t2, $a0, 1 # $t2 = prev_prod & 1
 
     # set current LSB
-    sra     $a0, $a0, 1 # t3 = t0 >> 1
-    andi    $t3, $a0, 1 # t3 = curr_prod & 1
+    sra     $a0, $a0, 1 # $a0 = $a0 >> 1 (Arithmetic right shift curr_prod = prev_prod >> 1)
+    andi    $t3, $a0, 1 # $t3 = curr_prod & 1
 
     b       while
 
 pass_01:
     # add multiplicand to left half of product
-    add     $a0, $a0, $a1 # t0 = t0 + t1
+    add     $a0, $a0, $a1 # $a0 = $a0 + $a1
 
     # get previous LSB
-    andi    $t2, $a0, 1 # t2 = prev_prod & 1
+    andi    $t2, $a0, 1 # $t2 = prev_prod & 1
 
     # set current LSB
-    sra     $a0, $a0, 1 # t3 = t0 >> 1
-    andi    $t3, $a0, 1 # t3 = curr_prod & 1
+    sra     $a0, $a0, 1 # $a0 = $a0 >> 1 (Arithmetic right shift curr_prod = prev_prod >> 1)
+    andi    $t3, $a0, 1 # $t3 = curr_prod & 1
 
     b       while
 
 pass_10:
     # subtract multiplicand from left half of product
-    sub     $a0, $a0, $a1 # t0 = t0 - t1
+    sub     $a0, $a0, $a1 # $a0 = $a0 - $a1
 
     # get previous LSB
-    andi    $t2, $a0, 1 # t2 = prev_prod & 1
+    andi    $t2, $a0, 1 # $t2 = prev_prod & 1
 
     # set current LSB
-    sra     $a0, $a0, 1 # t3 = t0 >> 1
-    andi    $t3, $a0, 1 # t3 = curr_prod & 1
+    sra     $a0, $a0, 1 # $a0 = $a0 >> 1 (Arithmetic right shift curr_prod = prev_prod >> 1)
+    andi    $t3, $a0, 1 # $t3 = curr_prod & 1
 
     b       while
 
 print_result:
+    # print the final result
     li      $v0, 4
     la      $a0, result
     syscall
@@ -143,10 +146,11 @@ print_result:
     la      $a0, newline
     syscall
 
-    li      $v0, 10
+    li      $v0, 10 # exit the program
     syscall
 
 print_err:
+    # called in case of error
     li      $v0, 4
     la      $a0, prompt_err
     syscall
