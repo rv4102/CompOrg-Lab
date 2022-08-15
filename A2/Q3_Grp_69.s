@@ -18,6 +18,8 @@ result_b:
     .asciiz "The elements of B are: "
 newline:
     .asciiz "\n"
+whitespace:
+    .asciiz " "
 
 # .text for logic implementation
     .text
@@ -130,28 +132,77 @@ transposeMatrix:
 
     jal     initStack
     jal     mallocInStack   # allocate space for n*m array
-    move    $a0, $t0        # $a0 = temp
-    move    $t0, $v0        # store base address of the array in stack pointer
+    move    $a0, $t0        # $a0 = temp (m)
+    jal     pushToStack     # push m to stack
+    move    $a0, $a1        # $a0 = n
+    jal     pushToStack     # push n to stack
 
-    li      $t3, 0          # i_ = 0
-    li      $t4, 0          # j_ = 0
-    li      $t1, 0          # i = 0
-    # for_i:
-    #     li      $t2, 0          # j = 0
-    #     for_j:
-    #         beq     $t2, $a1, check_i         # if(j == n), jump to check_i
-    #         mul     $t5, $a0, $t3             # $t5 = m*i_
-    #         add		$t5, $t5, $t4		      # $t0 = m*i_ + j_
+    move    $t0, $v0        # store base address of the array B in $t0
+
+    li      $a0, 0          # $a0 = 0
+    jal     pushToStack     # push i to stack (i = 0)
+    jal     pushToStack     # push j to stack (j = 0)
+    for_i:
+        for_j:
+            lw      $t1, -12($fp)             # load j in $t1
+            lw      $t2, -4($fp)              # load m in $t2
+            beq     $t1, $t2, check_i         # if(j == m), jump to check_i
+
+            lw      $t1, -4($fp)              # load m in $t1
+            lw      $t2, -8($fp)              # load n in $t2
+            lw      $t3, -12($fp)             # load i in $t3
+            lw      $t4, -16($fp)             # load j in $t4
+
+            mul     $t1, $t1, $t3             # $t1 = m*i
+            add		$t1, $t1, $t4		      # $t1 = m*i + j
+            add     $t1, $t0, $t1             # $t1 = B + (m*i + j)
+            mul     $t2, $t2, $t4             # $t2 = n*j
+            add     $t2, $t2, $t3             # $t2 = n*j + i
+            add     $t2, $a0, $t2             # $t2 = A + (n*j + i)
+
+            move    $t1, $t2                  # $t1 = $t2
+
+            lw      $t1, -16($fp)             # $t1 = j
+            addi    $t1, $t1, 1               # j++
+            sw      $t1, -16($fp)
+            j       $for_j
+
+        check_i:
+            lw      $t1, -12($fp)             # load i in $t1
+            lw      $t2, -8($fp)              # load n in $t2
+            beq     $t1, $t2, exit_loops      # if(i == n), jump to exit
+        lw      $t1, -12($fp)   # $t1 = i
+        addi    $t1, $t1, 1     # i++
+        sw      $t1, -12($fp)
+        j       $for_i
+    
+    exit_loops:
+        move    $v0, $t0        # $v0 stores the base address of B
+        jr      $ra             # return to caller routine
+
+printMatrix:
+    # arguments : $a0 - m, $a1 - n, $a2 - base address of array A
+    jal     initStack
+    jal     pushToStack     # push m to stack
+    move    $a0, $a1        # $a0 = n
+    jal     pushToStack     # push n to stack
+
+    li      $t0, 0          # i = 0
+    for_i_print:
+        li      $t1, 0          # j = 0
+        for_j_print:
+            lw        $t2, -8($fp)              # $t2 = n
+            beq       $t1, $t2, check_i         # if(j == n), jump to check_i
+            
             
 
-    #         j       $for_j
+            li      $v0, 1
+            move    $a0, $s0
+            syscall
 
-    #     check_i:
-    #         beq      $t1, $a0, exit_loops      # if(i == m), jump to exit
-    #     j       $for_i
-    
-    # exit_loops:
-
+            li      $v0, 4
+            la      $
+        
 
 print_err:
     # called in case of error
