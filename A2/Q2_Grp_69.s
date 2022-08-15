@@ -25,7 +25,9 @@ prompt5:
     .asciiz "kth largest number is: "
 prompt6:
     .asciiz "done"
-    
+prompt7:
+    .asciiz "reading done"
+
     .text
 main:
     li $v0, 4
@@ -49,12 +51,25 @@ main:
     bgt $s2, $s1, error_k_value
     ble $s2, 0, error_k_value
  
+    li $v0, 4
+    la $a0, prompt7
+    syscall
+    ######
+    # la $a0, array
+    # move $a1, $s1
+    # jal printing_sorted_arr
+    ####
+    la $a0, array
+    move $a1, $s1
+
     jal sort_array
 
     li $v0, 4
     la $a0, prompt3
     syscall
 
+    la $a0, array
+    move $a1, $s1
     jal printing_sorted_arr
 
     li $v0, 4
@@ -81,24 +96,9 @@ read:
     b read_input
 
 read_input:
-    # addi $sp, $sp, -4
-    # li $v0, 5
-    # syscall
-
-    # mul $t4, $t4, 4
-    # beq $t0, $t4, function_end
-
-    # sw $v0, array($t0)
-    # addi $t0, $t0,  4
-    # addi $sp, $sp, 4
-    # j read_input
-
-    # beq $s1, $s2, sort_array
     li $v0, 5
     syscall
-    # add $t1, $t0, $zero
-    # sll $t1, $t0, 2
-    # add $t3, $v0, $zero
+    
     sw $v0, array ($t1)
     addi $t1, $t1, 4
     
@@ -108,45 +108,46 @@ read_input:
     # beq $t1, $zero, read_input
 
 sort_array:
-    la $a0, array
-    li $a1, 10
     li $t0, 1
-    j loop1
-    #li $t1, 0
-    # add $t2, $zero, $s0
-    # add $t3, $zero, $s0
-    # addi $s1, $s1, -1
+    j loop_condition
 
-loop1:
+loop_start:
     sll $t4, $t0, 2
     add $t4, $a0, $t4
-    lw $t2, array($t4)
-    addi $t4, $t4, 4
-    sw $t2, array($t4)
+    lw $t3, 0($t4)
     addi $t1, $t0, -1
+    j loop2
+
+swap:
+    sll $t4, $t1, 2
+    add $t4, $a0, $t4
+    lw $t2, 0($t4)
+    addi $t4, $t4, 4
+    sw $t2, 0($t4)
+    addi $t1, $t1, -1
 
 loop2:
-    # lw $s3, array ($t3)
+    # lw $s3, 0 ($t3)
     # addi $t3, $t3, 4
-    # lw $s4, array ($t3)
+    # lw $s4, 0 ($t3)
     # addi $t1, $t1, 1
     # slt $t4, $s3, $s4
     # bne $t4, $zero, move_to_loop2
-    blt $t1, $zero, loop1
+    blt $t1, $zero, loop3
     sll $t4, $t1, 2
     add $t4, $a0, $t4
-    lw $t2, array
-    bgt $t2, $t3, loop1
+    lw $t2, 0($t4)
+    bgt $t2, $t3, swap
 
-loop2_terminate:
+loop3:
     add $t4, $t1, 1
     sll $t4, $t4, 2
     add $t4, $a0, $t4
-    sw $t3, array($t4)
+    sw $t3, 0($t4)
     addi $t0, $t0, 1
 
-loop1_terminate:
-    blt $t0,  $a1, loop1
+loop_condition:
+    blt $t0,  $a1, loop_start
     li $v0, 4
     la $a0, prompt6
     syscall
@@ -183,7 +184,7 @@ while_print:
     addi $t1, $t1, 4
 
     li $v0, 1
-    move $a0, $t1
+    move $a0, $t2
     syscall
 
     li $v0, 4
