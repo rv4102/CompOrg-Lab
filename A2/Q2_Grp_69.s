@@ -34,9 +34,6 @@ main:
     la $a0, prompt1
     syscall
 
-    # la $t1, array
-    # li $s1, 10
-    # li $s2, 0
     li $s1, 10
     jal read
 
@@ -153,18 +150,7 @@ loop_condition:
     syscall
 
     jr $ra
-# swap:
-#     sw $s3, array ($t3)
-#     sw $s4, -4($t3)
-#     lw $s4, array ($t3)
 
-# move_to_loop2:
-#     bne $t1, $s2, loop2
-
-# addi $t0, $t0, 1
-# bne $t0, $s1, loop1
-# li $t0, 0
-# addi $s1, $s1, 1
 error_k_value:
     li $v0, 4
     la $a0, prompt4
