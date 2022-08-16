@@ -51,11 +51,7 @@ main:
     li $v0, 4
     la $a0, prompt7
     syscall
-    ######
-    # la $a0, array
-    # move $a1, $s1
-    # jal printing_sorted_arr
-    ####
+    
     la $a0, array
     move $a1, $s1
 
@@ -101,8 +97,6 @@ read_input:
     
     bne $t1, 40, read_input
     jr $ra
-    # slt $t1, $s0, $t0
-    # beq $t1, $zero, read_input
 
 sort_array:
     li $t0, 1
@@ -124,12 +118,7 @@ swap:
     addi $t1, $t1, -1
 
 loop2:
-    # lw $s3, 0 ($t3)
-    # addi $t3, $t3, 4
-    # lw $s4, 0 ($t3)
-    # addi $t1, $t1, 1
-    # slt $t4, $s3, $s4
-    # bne $t4, $zero, move_to_loop2
+    
     blt $t1, $zero, loop3
     sll $t4, $t1, 2
     add $t4, $a0, $t4
