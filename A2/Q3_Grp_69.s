@@ -254,8 +254,7 @@ print_err:
     la      $a0, prompt_err
     syscall
 
-    li      $v0, 10         # exit the program
-    syscall
+    j		main				# jump to main
 
 exit:
     li      $v0, 10         # exit the program
