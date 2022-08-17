@@ -39,20 +39,10 @@ main:
     li $s1, 10              # storing size of array in $s1. $s1 stores 10
     jal read                # reading integers. calling read function
 
-    li $v0, 4               # prompting the user to enter k
-    la $a0, prompt2
-    syscall
+    jal read_k              # function to get k
 
-    li $v0, 5               # taking input of k
-    syscall
-
-    move $s2, $v0           # $s2 stores k
-    bgt $s2, $s1, error_k_value   # if k>10 display error and end
-    ble $s2, 0, error_k_value     # if k<=0 display error and end
-    
     la $a0, array           # storing the array in $a0 (first argument)
     move $a1, $s1           # $a1 (second argument) = 10
-
     jal sort_array          # calling the function to sort the array
 
     li $v0, 4               # prompting the user that the next line represents the sorted array
@@ -63,23 +53,7 @@ main:
     move $a1, $s1           # $a1 (second argument) = 10
     jal printing_sorted_arr # calling the function to print the sorted array iteratively
 
-    li $v0, 4               # prompting the user that the next integer printed is the kth largest element in the array
-    la $a0, prompt5
-    syscall    
-
-    # $s1 = 10
-    # $s2 = k
-    sub $t1, $s1, $s2       # $t1 stores (10 - k)
-    sll $t1, $t1, 2         # multiplying the $t1 by 4 to convert it to bits
-    lw $t2, array($t1)      # $t2 stores array[n-k]
-
-    li $v0, 1               # printing the kth largest integer
-    move $a0, $t2           # printing array[n-k]
-    syscall
-
-    li $v0, 4               # printing the newline
-    la $a0, newline
-    syscall
+    jal find_k_largest      # calling the find_k_largest function to find the 
 
     li $v0, 10              # ending the program
     syscall
@@ -106,6 +80,34 @@ read_input:
     
     bne $t1, 40, read_input     #if (i==10) break;
     jr $ra                      #return
+
+#function to take k as input
+read_k:
+    li $v0, 4               # prompting the user to enter k
+    la $a0, prompt2
+    syscall
+
+    li $v0, 5               # taking input of k
+    syscall
+
+    move $s2, $v0           # $s2 stores k
+    bgt $s2, $s1, error_k_value   # if k>10 display error and end
+    ble $s2, 0, error_k_value     # if k<=0 display error and end
+
+    jr $ra                  #if valid k, then return
+
+# if the value of k is not within the appropriate limits
+error_k_value:                  
+    li $v0, 4                   #prompting the user that the value of k is invalid
+    la $a0, prompt4         
+    syscall
+
+    li $v0, 4                   #printing newline
+    la $a0, newline
+    syscall
+
+    j read_k
+
 
 # function to sort the array using bubble sort
 
@@ -154,18 +156,6 @@ loop_condition_outer:           # to check the outer loop condition
     blt $t0,  $a1, loop_start   # if(i<10) start the loop
     jr $ra                      #else return
 
-# if the value of k is not within the appropriate limits
-error_k_value:                  
-    li $v0, 4                   #prompting the user that the value of k is invalid
-    la $a0, prompt4         
-    syscall
-
-    li $v0, 4                   #printing newline
-    la $a0, newline
-    syscall
-
-    li $v0, 10                  #ending the program
-    syscall
 
 # function to print the sorted array
 # registers
@@ -200,3 +190,24 @@ while_print_terminate:
     syscall
     jr $ra                      # return
 
+#function to find the kth largest element in the sorted array
+find_k_largest:
+    li $v0, 4               # prompting the user that the next integer printed is the kth largest element in the array
+    la $a0, prompt5
+    syscall    
+
+    # $s1 = 10
+    # $s2 = k
+    sub $t1, $s1, $s2       # $t1 stores (10 - k)
+    sll $t1, $t1, 2         # multiplying the $t1 by 4 to convert it to bits
+    lw $t2, array($t1)      # $t2 stores array[n-k]
+
+    li $v0, 1               # printing the kth largest integer
+    move $a0, $t2           # printing array[n-k]
+    syscall
+
+    li $v0, 4               # printing the newline
+    la $a0, newline
+    syscall
+
+    jr $ra                  # return 
