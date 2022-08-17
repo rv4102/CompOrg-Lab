@@ -51,6 +51,24 @@ main:
     bgt     $s1, 32767, print_err
     blt     $s1, -32768, print_err
 
+    # if both inputs are INT_MIN
+    beq     $s0, -32768, check_2
+    bne     $s0, -32768, continue_1
+
+check_2:
+    beq     $s1, -32768, edge_handling
+
+continue_1:
+    # store the smaller in $s0
+    blt		$s1, $s0, swap	    # if $s0 < $s1 then swap
+    bge		$s1, $s0, continue_2	# if $s1 >= $s0 then continue
+    
+swap:
+    move 	$t8, $s0
+    move    $s0, $s1
+    move    $s1, $t8
+
+continue_2:
     # store inputs in a0 and a1 registers for function call
     move    $a0, $s0
     move    $a1, $s1
@@ -62,6 +80,10 @@ main:
     move    $s0, $v0
 
     b       print_result
+
+edge_handling:
+    li      $s0, 1073741824
+    j		print_result				# jump to print_result
 
 multiply_booth:
     # let $a0 be Multiplier (This will act as the product)
@@ -131,6 +153,14 @@ pass_10:
 
     b       while
 
+print_err:
+    # called in case of error
+    li      $v0, 4
+    la      $a0, prompt_err
+    syscall
+
+    j		main	# jump to main
+
 print_result:
     # print the final result
     li      $v0, 4
@@ -146,13 +176,4 @@ print_result:
     syscall
 
     li      $v0, 10 # exit the program
-    syscall
-
-print_err:
-    # called in case of error
-    li      $v0, 4
-    la      $a0, prompt_err
-    syscall
-
-    li      $v0, 10
     syscall
