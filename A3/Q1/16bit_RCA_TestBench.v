@@ -9,35 +9,35 @@
 // SEM 5 (Autumn 2022-23)
 //////////////////////////////////////////////////////////////////////////////////
 
-module RCA8_TB;
+module RCA16_TB;
     // Inputs
-    reg[7:0] A;
-    reg[7:0] B;
+    reg[15:0] A;
+    reg[15:0] B;
     reg cin;
 
     // Outputs
-    wire[7:0] sum;
+    wire[15:0] sum;
     wire cout;
 
     RCA_8 A1(.A(A), .B(B), .cin(cin), 
-                .sum(sum), .cout(cout));
+            .sum(sum), .cout(cout));
     
     initial 
         begin
             $monitor ("A = %d, B = %d, cin = %d, sum = %d, cout = %d\n", A, B, cin, sum, cout);
 
             // Test cases
-            // 8-bit unsigned numbers can vary from [0, 255]
-            // Output can range from [0, 511]
-            A = 8'd120; B = 8'd240; cin = 1'd0;     // sum = 8'd104, cout = 1'd1
+            // 16-bit unsigned numbers can vary from [0, 65535]
+            // Output can range from [0, 131071]
+            A = 16'd65000; B = 16'd65340; cin = 1'd0;       // sum = 16'64804, cout = 1'd1
             #100;
-            A = 8'd169; B = 8'd256; cin = 1'd1;     // sum = 8'd170, cout = 1'd1
+            A = 16'd58135; B = 16'd3592; cin = 1'd0;        // sum = 16'61727, cout = 1'd0
             #100;
-            A = 8'd53; B = 8'd250; cin = 1'd0;      // sum = 8'd47, cout = 1'd1
+            A = 16'd1005; B = 16'd69; cin = 1'd1;           // sum = 16'd1075, cout = 1'd0
             #100;
-            A = 8'd1; B = 8'd50; cin = 1'd1;        // sum = 8'd50, cout = 1'd0
+            A = 16'd15124; B = 16'd5383; cin = 1'd1;        // sum = 16'20508, cout = 1'd0
             #100;
-            A = 8'd50; B = 8'd100; cin = 1'd0;      // sum = 8'd150, cout = 1'd0
+            A = 16'd50; B = 16'd10024; cin = 1'd0;          // sum = 16'd10074, cout = 1'd0
         end
 
 endmodule
