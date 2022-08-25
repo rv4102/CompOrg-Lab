@@ -9,7 +9,7 @@
 // SEM 5 (Autumn 2022-23)
 //////////////////////////////////////////////////////////////////////////////////
 
-module 8bit_RCA(input[7:0] A, input[7:0] B, input cin, 
+module RCA_8(input[7:0] A, input[7:0] B, input cin, 
                     output[7:0] S, output cout);
     wire[6:0] carry;                                        // 7-bit wire used to store the carry bit from each Full Adder
     full_addr F1(A[0], B[0], cin, S[0], carry[0]);
