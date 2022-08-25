@@ -24,7 +24,7 @@ module RCA8_TB;
     
     initial 
         begin
-            $monitor ("A = %d, B = %d, cin = %d, sum = %d, cout = %d\n", A, B, cin, sum, cout);
+            $monitor ("A = %d, B = %d, cin = %b, sum = %d, cout = %b\n", A, B, cin, sum, cout);
 
             // Test cases
             // 8-bit unsigned numbers can vary from [0, 255]
