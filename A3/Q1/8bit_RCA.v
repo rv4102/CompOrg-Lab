@@ -20,5 +20,5 @@ module 8bit_RCA(input[7:0] A, input[7:0] B, input cin,
     full_addr F6(A[5], B[5], carry[4], S[5], carry[5]);
     full_addr F7(A[6], B[6], carry[5], S[6], carry[6]);
     full_addr F8(A[7], B[7], carry[6], S[7], cout);         // Final output generated
-    // S stores the 8 bit sum output, and cout stores the carry
+    // S stores the 8-bit sum output, and cout stores the carry
 endmodule
