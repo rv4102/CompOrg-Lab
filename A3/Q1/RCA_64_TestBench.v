@@ -20,7 +20,7 @@ module RCA64_TB;
     wire cout;
 
     RCA_64 A1(.A(A), .B(B), .cin(cin), 
-            .sum(sum), .cout(cout));
+            .S(sum), .cout(cout));
     
     initial 
         begin

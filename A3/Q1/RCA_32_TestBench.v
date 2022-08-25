@@ -20,7 +20,7 @@ module RCA32_TB;
     wire cout;
 
     RCA_32 A1(.A(A), .B(B), .cin(cin), 
-            .sum(sum), .cout(cout));
+            .S(sum), .cout(cout));
     
     initial 
         begin
@@ -35,7 +35,7 @@ module RCA32_TB;
             #100;
             A = 32'd1005; B = 32'd69; cin = 1'd1;                   //sum = 32'd1075, cout = 32'd0
             #100;
-            A = 32'd151242; B = 32'd53831224; cin = 1'd1;           //sum = 32'd53982466, cout = 32'd0
+            A = 32'd151242; B = 32'd53831224; cin = 1'd1;           //sum = 32'd53982467, cout = 32'd0
             #100;
             A = 32'd501; B = 32'd5002423; cin = 1'd0;               //sum = 32'd5002924, cout = 32'd0
         end
