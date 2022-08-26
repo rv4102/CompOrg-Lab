@@ -9,9 +9,7 @@
 // SEM 5 (Autumn 2022-23)
 //////////////////////////////////////////////////////////////////////////////////
 
-module RCA_sub(input[63:0] A, input[63:0] B, 
-                    output[63:0] D, output cout);
-    nor(B,B,B);
-    RCA_64(A[63:0], B[63:0], 1, D[63:0], cout);
-    
+module half_addr(input in1, input in2, output sum, output carry);
+    xor g1(sum, in1, in2);      // XOR of in1 and in2 to get the sum
+    and g2(carry, in1, in2);    // AND of in1 and in2 to get the carry
 endmodule

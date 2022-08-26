@@ -11,11 +11,11 @@
 
 module RCA_subTB;
     // Inputs
-    reg[63:0] A;
-    reg[63:0] B;
+    reg signed[63:0] A;
+    reg signed[63:0] B;
 
     // Outputs
-    wire[63:0] sum;
+    wire signed[63:0] diff;
     wire cout;
 
     RCA_sub A1(.A(A), .B(B), 
@@ -23,11 +23,9 @@ module RCA_subTB;
     
     initial 
         begin
-            $monitor ("A = %d, B = %d, difference = %d, cout = %b\n", A, B, cin, diff, cout);
+            $monitor ("A = %d, B = %d, difference = %d\n", A, B, diff);
 
             // Test cases
-            // 16-bit unsigned numbers can vary from [0, 65535]
-            // Output can range from [0, 131071]
             A = 16'd65000; B = 16'd65340;
             #100;
             A = 16'd58135; B = 16'd3592;
