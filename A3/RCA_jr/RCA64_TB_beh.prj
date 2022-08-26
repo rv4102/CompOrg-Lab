@@ -1,7 +1,0 @@
-verilog work "full_addr.v"
-verilog work "RCA_8.v"
-verilog work "RCA_16.v"
-verilog work "RCA_32.v"
-verilog work "RCA_64.v"
-verilog work "RCA_64_TestBench.v"
-verilog work "E:/Xlinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"
