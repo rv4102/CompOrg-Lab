@@ -1,0 +1,21 @@
+ISim log file
+Running: C:\Users\Student\Downloads\COA-Lab-Gr69-Assgn-main\COA-Lab-Gr69-Assgn-main\A3\RCA_jr\RCA_subTB_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/RCA_jr/RCA_subTB_isim_beh.wdb 
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING:  For instance A1/A1/, width 1 of formal port cin is not equal to width 32 of actual constant.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+A =                 65000, B =                 65340, difference =                  -340
+
+A =                 58135, B =                  3592, difference =                 54543
+
+A =                  1005, B =                    69, difference =                   936
+
+A =                 15124, B =                  5383, difference =                  9741
+
+A =                    50, B =                 10024, difference =                 -9974
+

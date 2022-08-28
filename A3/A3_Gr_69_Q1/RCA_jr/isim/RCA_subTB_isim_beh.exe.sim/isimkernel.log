@@ -1,0 +1,28 @@
+Command line:
+   RCA_subTB_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  54117
+
+Fri Aug 26 16:23:33 2022
+
+
+ Elaboration Time: 0.078125 sec
+
+ Current Memory Usage: 5153.84 Meg
+
+ Total Signals          : 621
+ Total Nets             : 557
+ Total Signal Drivers   : 329
+ Total Blocks           : 82
+ Total Primitive Blocks : 65
+ Total Processes        : 331
+ Total Traceable Variables  : 20
+ Total Scalar Nets and Variables : 765
+
+ Total Simulation Time: 0.09375 sec
+
+ Current Memory Usage: 5153.84 Meg
+
+Fri Aug 26 16:23:54 2022
+

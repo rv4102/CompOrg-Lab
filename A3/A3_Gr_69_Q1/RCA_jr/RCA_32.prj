@@ -1,0 +1,4 @@
+verilog work "full_addr.v"
+verilog work "RCA_8.v"
+verilog work "RCA_16.v"
+verilog work "RCA_32.v"
