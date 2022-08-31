@@ -2,7 +2,7 @@
 
 //////////////////////////////////////////////////////////////////////////////////
 // Assignment 3
-// Question 1
+// Question 2
 // Group 69
 // Team Member 1: Rushil Venkateswar (20CS30045)
 // Team Member 2: Jatin Gupta (20CS10087)
@@ -18,11 +18,11 @@ module bit_16_TB;
     // Outputs
     wire[15:0] sum;
     wire cout;
-    wire p;
-    wire g;
+    wire P';
+    wire G';
 
     bit_16 A1(.A(A), .B(B), .cin(cin), 
-            .S(sum), .cout(cout), .p(p), .g(g));
+            .S(sum), .cout(cout), .P'(P'), .G'(G'));
     
     initial 
         begin

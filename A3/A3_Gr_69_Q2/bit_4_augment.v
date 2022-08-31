@@ -2,7 +2,7 @@
 
 //////////////////////////////////////////////////////////////////////////////////
 // Assignment 3
-// Question 1
+// Question 2
 // Group 69
 // Team Member 1: Rushil Venkateswar (20CS30045)
 // Team Member 2: Jatin Gupta (20CS10087)
@@ -10,7 +10,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module bit_4_augment (input [3:0] A, input [3:0] B, input cin, 
-                    output [3:0] sum, output p, output g);
+                    output [3:0] sum, output P', output G');
     
     wire [3:0] P;
     wire [3:0] G;
@@ -33,7 +33,7 @@ module bit_4_augment (input [3:0] A, input [3:0] B, input cin,
 
     assign sum = P^C;
     
-    assign p = P[3] & P[2] & P[1] & P[0];
-	 assign g = G[3] | (P[3] & G[2]) | (P[3] & P[2] & G[1]) | (P[3] & P[2] & P[1] & G[0]);
+    assign P' = P[3] & P[2] & P[1] & P[0];
+	assign G' = G[3] | (P[3] & G[2]) | (P[3] & P[2] & G[1]) | (P[3] & P[2] & P[1] & G[0]);
 
 endmodule

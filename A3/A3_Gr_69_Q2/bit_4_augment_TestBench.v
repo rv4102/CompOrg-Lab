@@ -2,7 +2,7 @@
 
 //////////////////////////////////////////////////////////////////////////////////
 // Assignment 3
-// Question 1
+// Question 2
 // Group 69
 // Team Member 1: Rushil Venkateswar (20CS30045)
 // Team Member 2: Jatin Gupta (20CS10087)
@@ -17,16 +17,16 @@ module bit_4_augment_TB;
 
     // Outputs
     wire[3:0] sum;
-    wire p;
-    wire g
+    wire P';
+    wire G';
 
 
     bit_4_augment A1(.A(A), .B(B), .cin(cin), 
-                .S(sum), .p(p), .g(g));
+                .S(sum), .P'(P'), .G'(G'));
     
     initial 
         begin
-            $monitor ("A = %d, B = %d, cin = %b, sum = %d, p = %d, g = %d\n", A, B, cin, sum, p, g);
+            $monitor ("A = %d, B = %d, cin = %b, sum = %d, p = %d, g = %d\n", A, B, cin, sum, P', G');
 
             // Test cases
             // 4-bit unsigned numbers can vary from [0, 15]
