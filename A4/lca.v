@@ -9,8 +9,8 @@
 // SEM 5 (Autumn 2022-23)
 //////////////////////////////////////////////////////////////////////////////////
 
-module lcu (input [3:0] P, input [3:0] G,
-                output [3:0] c, output cout, output p, output q)
+module lca (input [3:0] P, input [3:0] G,
+                output [3:0] c, output p, output q)
 
     assign c[0] = cin;
     assign c[1] = G[0] | (P[0] & c[0]);
