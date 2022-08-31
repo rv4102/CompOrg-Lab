@@ -17,8 +17,7 @@ module bit_16_lookahead (input [15:0] A, input [15:0] B,input cin,
     bit_4_augment b2(.A(A[7:4]), .B(B[7:4]), .cin(C[0]), .sum(sum[7:4]), .p(P[1]), .g(G[1]));
     bit_4_augment b3(.A(A[11:8]), .B(B[11:8]), .cin(C[1]), .sum(sum[11:8]), .p(P[2]), .g(G[2]));
     bit_4_augment b4(.A(A[15:12]), .B(B[15:12]), .cin(C[2]), .sum(sum[15:12]), .p(P[3]), .g(G[3]));
-    lca lcunit(.P(P), .G(G), .c(C), .p(p), .g(g)); 
+    lca lcunit(.P(P), .G(G), .cin(cin), .c(C), .p(p), .g(g)); 
     assign cout = C[3];
 
 endmodule
-
