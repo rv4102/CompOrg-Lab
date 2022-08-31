@@ -10,7 +10,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module lca (input [3:0] P, input [3:0] G, input cin,
-                output [3:0] c, output P', output G');
+                output [3:0] c, output p, output g);
 
     assign c[0] = G[0] | (P[0] & cin);
     assign c[1] = G[1] | (P[1] & G[0]) | (P[1] & P[0] & cin);
@@ -18,7 +18,7 @@ module lca (input [3:0] P, input [3:0] G, input cin,
     assign c[3] = G[3] | (P[3] & G[2]) | (P[3] & P[2] & G[1]) 
                         | (P[3] & P[2] & P[1] & G[0]) | (P[3] & P[2] & P[1] & P[0] & cin);
 
-    assign P' = P[3] & P[2] & P[1] & P[0];
-    assign G' = G[3] | (P[3] & G[2]) | (P[3] & P[2] & G[1]) | (P[3] & P[2] & P[1] & G[0]);
+    assign p = P[3] & P[2] & P[1] & P[0];
+    assign g = G[3] | (P[3] & G[2]) | (P[3] & P[2] & G[1]) | (P[3] & P[2] & P[1] & G[0]);
 
 endmodule   

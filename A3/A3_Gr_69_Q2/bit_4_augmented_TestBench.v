@@ -17,16 +17,16 @@ module bit_4_augment_TB;
 
     // Outputs
     wire[3:0] sum;
-    wire P';
-    wire G';
+    wire p;
+    wire g;
 
 
     bit_4_augment A1(.A(A), .B(B), .cin(cin), 
-                .S(sum), .P'(P'), .G'(G'));
+                .S(sum), .p(p), .g(g));
     
     initial 
         begin
-            $monitor ("A = %d, B = %d, cin = %b, sum = %d, p = %d, g = %d\n", A, B, cin, sum, P', G');
+            $monitor ("A = %d, B = %d, cin = %b, sum = %d, p = %d, g = %d\n", A, B, cin, sum, p, g);
 
             // Test cases
             // 4-bit unsigned numbers can vary from [0, 15]

@@ -18,11 +18,11 @@ module bit_16_TB;
     // Outputs
     wire[15:0] sum;
     wire cout;
-    wire P';
-    wire G';
+    wire p;
+    wire g;
 
     bit_16 A1(.A(A), .B(B), .cin(cin), 
-            .S(sum), .cout(cout), .P'(P'), .G'(G'));
+            .S(sum), .cout(cout), .p(p), .g(g));
     
     initial 
         begin
