@@ -1,0 +1,366 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Reading design: RCA_16.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "RCA_16.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "RCA_16"
+Output Format                      : NGC
+Target Device                      : xc7a100t-1-csg324
+
+---- Source Options
+Top Module Name                    : RCA_16
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : Yes
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\Student\Downloads\COA-Lab-Gr69-Assgn-main\COA-Lab-Gr69-Assgn-main\A3\Assgn3_Grp69_Q2\full_addr.v" into library work
+Parsing module <full_addr>.
+Analyzing Verilog file "C:\Users\Student\Downloads\COA-Lab-Gr69-Assgn-main\COA-Lab-Gr69-Assgn-main\A3\Assgn3_Grp69_Q2\RCA_8.v" into library work
+Parsing module <RCA_8>.
+Analyzing Verilog file "C:\Users\Student\Downloads\COA-Lab-Gr69-Assgn-main\COA-Lab-Gr69-Assgn-main\A3\Assgn3_Grp69_Q2\RCA_16.v" into library work
+Parsing module <RCA_16>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <RCA_16>.
+
+Elaborating module <RCA_8>.
+
+Elaborating module <full_addr>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <RCA_16>.
+    Related source file is "C:\Users\Student\Downloads\COA-Lab-Gr69-Assgn-main\COA-Lab-Gr69-Assgn-main\A3\Assgn3_Grp69_Q2\RCA_16.v".
+    Summary:
+	no macro.
+Unit <RCA_16> synthesized.
+
+Synthesizing Unit <RCA_8>.
+    Related source file is "C:\Users\Student\Downloads\COA-Lab-Gr69-Assgn-main\COA-Lab-Gr69-Assgn-main\A3\Assgn3_Grp69_Q2\RCA_8.v".
+    Summary:
+	no macro.
+Unit <RCA_8> synthesized.
+
+Synthesizing Unit <full_addr>.
+    Related source file is "C:\Users\Student\Downloads\COA-Lab-Gr69-Assgn-main\COA-Lab-Gr69-Assgn-main\A3\Assgn3_Grp69_Q2\full_addr.v".
+    Summary:
+Unit <full_addr> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Xors                                                 : 32
+ 1-bit xor2                                            : 16
+ 1-bit xor3                                            : 16
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Xors                                                 : 32
+ 1-bit xor2                                            : 16
+ 1-bit xor3                                            : 16
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <RCA_16> ...
+
+Optimizing unit <RCA_8> ...
+
+Optimizing unit <full_addr> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block RCA_16, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : RCA_16.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 32
+#      LUT3                        : 32
+# IO Buffers                       : 50
+#      IBUF                        : 33
+#      OBUF                        : 17
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 7a100tcsg324-1 
+
+
+Slice Logic Utilization: 
+ Number of Slice LUTs:                   32  out of  63400     0%  
+    Number used as Logic:                32  out of  63400     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     32
+   Number with an unused Flip Flop:      32  out of     32   100%  
+   Number with an unused LUT:             0  out of     32     0%  
+   Number of fully used LUT-FF pairs:     0  out of     32     0%  
+   Number of unique control sets:         0
+
+IO Utilization: 
+ Number of IOs:                          50
+ Number of bonded IOBs:                  50  out of    210    23%  
+
+Specific Feature Utilization:
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -1
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 9.806ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 321 / 17
+-------------------------------------------------------------------------
+Delay:               9.806ns (Levels of Logic = 36)
+  Source:            A<0> (PAD)
+  Destination:       S<15> (PAD)
+
+  Data Path: A<0> to S<15>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   0.001   0.722  A_0_IBUF (A_0_IBUF)
+     begin scope: 'A1:A<0>'
+     begin scope: 'A1/F1:in1'
+     LUT3:I0->O            2   0.124   0.427  carry1 (carry)
+     end scope: 'A1/F1:carry'
+     begin scope: 'A1/F2:cin'
+     LUT3:I2->O            2   0.124   0.427  carry1 (carry)
+     end scope: 'A1/F2:carry'
+     begin scope: 'A1/F3:cin'
+     LUT3:I2->O            2   0.124   0.427  carry1 (carry)
+     end scope: 'A1/F3:carry'
+     begin scope: 'A1/F4:cin'
+     LUT3:I2->O            2   0.124   0.427  carry1 (carry)
+     end scope: 'A1/F4:carry'
+     begin scope: 'A1/F5:cin'
+     LUT3:I2->O            2   0.124   0.427  carry1 (carry)
+     end scope: 'A1/F5:carry'
+     begin scope: 'A1/F6:cin'
+     LUT3:I2->O            2   0.124   0.427  carry1 (carry)
+     end scope: 'A1/F6:carry'
+     begin scope: 'A1/F7:cin'
+     LUT3:I2->O            2   0.124   0.427  carry1 (carry)
+     end scope: 'A1/F7:carry'
+     begin scope: 'A1/F8:cin'
+     LUT3:I2->O            2   0.124   0.427  carry1 (carry)
+     end scope: 'A1/F8:carry'
+     end scope: 'A1:cout'
+     begin scope: 'A2:cin'
+     begin scope: 'A2/F1:cin'
+     LUT3:I2->O            2   0.124   0.427  carry1 (carry)
+     end scope: 'A2/F1:carry'
+     begin scope: 'A2/F2:cin'
+     LUT3:I2->O            2   0.124   0.427  carry1 (carry)
+     end scope: 'A2/F2:carry'
+     begin scope: 'A2/F3:cin'
+     LUT3:I2->O            2   0.124   0.427  carry1 (carry)
+     end scope: 'A2/F3:carry'
+     begin scope: 'A2/F4:cin'
+     LUT3:I2->O            2   0.124   0.427  carry1 (carry)
+     end scope: 'A2/F4:carry'
+     begin scope: 'A2/F5:cin'
+     LUT3:I2->O            2   0.124   0.427  carry1 (carry)
+     end scope: 'A2/F5:carry'
+     begin scope: 'A2/F6:cin'
+     LUT3:I2->O            2   0.124   0.427  carry1 (carry)
+     end scope: 'A2/F6:carry'
+     begin scope: 'A2/F7:cin'
+     LUT3:I2->O            2   0.124   0.722  carry1 (carry)
+     end scope: 'A2/F7:carry'
+     begin scope: 'A2/F8:cin'
+     LUT3:I0->O            1   0.124   0.399  sum1 (sum)
+     end scope: 'A2/F8:sum'
+     end scope: 'A2:S<7>'
+     OBUF:I->O                 0.000          S_15_OBUF (S<15>)
+    ----------------------------------------
+    Total                      9.806ns (1.985ns logic, 7.821ns route)
+                                       (20.2% logic, 79.8% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.82 secs
+ 
+--> 
+
+Total memory usage is 4617516 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

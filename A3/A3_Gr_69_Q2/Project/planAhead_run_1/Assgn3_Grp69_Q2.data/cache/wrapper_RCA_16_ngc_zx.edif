@@ -1,0 +1,3598 @@
+(edif wrapper_RCA_16
+  (edifVersion 2 0 0)
+  (edifLevel 0)
+  (keywordMap (keywordLevel 0))
+  (status
+    (written
+      (timestamp 2022 8 31 16 27 9)
+      (program "Xilinx ngc2edif" (version "P.20131013"))
+      (author "Xilinx. Inc ")
+      (comment "This EDIF netlist is to be used within supported synthesis tools")
+      (comment "for determining resource/timing estimates of the design component")
+      (comment "represented by this netlist.")
+      (comment "Command line: -mdp2sp -w -secure wrapper_RCA_16.ngc wrapper_RCA_16.edif ")))
+  (external UNISIMS
+    (edifLevel 0)
+    (technology (numberDefinition))
+    (cell FDR
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port C
+              (direction INPUT)
+            )
+            (port D
+              (direction INPUT)
+            )
+            (port R
+              (direction INPUT)
+            )
+            (port Q
+              (direction OUTPUT)
+            )
+          )
+      )
+    )
+    (cell LUT3
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port I0
+              (direction INPUT)
+            )
+            (port I1
+              (direction INPUT)
+            )
+            (port I2
+              (direction INPUT)
+            )
+            (port O
+              (direction OUTPUT)
+            )
+          )
+      )
+    )
+    (cell IBUF
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port I
+              (direction INPUT)
+            )
+            (port O
+              (direction OUTPUT)
+            )
+          )
+      )
+    )
+    (cell OBUF
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port I
+              (direction INPUT)
+            )
+            (port O
+              (direction OUTPUT)
+            )
+          )
+      )
+    )
+    (cell BUFGP
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port I
+              (direction INPUT)
+            )
+            (port O
+              (direction OUTPUT)
+            )
+          )
+      )
+    )
+  )
+
+  (library wrapper_RCA_16_lib
+    (edifLevel 0)
+    (technology (numberDefinition))
+    (cell (rename full_addr_NO15_F1 "full_addr")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port in1
+              (direction INPUT)
+            )
+            (port in2
+              (direction INPUT)
+            )
+            (port cin
+              (direction INPUT)
+            )
+            (port sum
+              (direction OUTPUT)
+            )
+            (port carry
+              (direction OUTPUT)
+            )
+          )
+          (contents
+            (instance carry1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property INIT (string "E8") (owner "Xilinx"))
+            )
+            (instance sum1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property INIT (string "96") (owner "Xilinx"))
+            )
+            (net in1
+              (joined
+                (portRef in1)
+                (portRef I0 (instanceRef carry1))
+                (portRef I1 (instanceRef sum1))
+              )
+            )
+            (net in2
+              (joined
+                (portRef in2)
+                (portRef I1 (instanceRef carry1))
+                (portRef I2 (instanceRef sum1))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef I2 (instanceRef carry1))
+                (portRef I0 (instanceRef sum1))
+              )
+            )
+            (net sum
+              (joined
+                (portRef sum)
+                (portRef O (instanceRef sum1))
+              )
+            )
+            (net carry
+              (joined
+                (portRef carry)
+                (portRef O (instanceRef carry1))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename full_addr_NO14_F2 "full_addr")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port in1
+              (direction INPUT)
+            )
+            (port in2
+              (direction INPUT)
+            )
+            (port cin
+              (direction INPUT)
+            )
+            (port sum
+              (direction OUTPUT)
+            )
+            (port carry
+              (direction OUTPUT)
+            )
+          )
+          (contents
+            (instance carry1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property INIT (string "E8") (owner "Xilinx"))
+            )
+            (instance sum1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property INIT (string "96") (owner "Xilinx"))
+            )
+            (net in1
+              (joined
+                (portRef in1)
+                (portRef I0 (instanceRef carry1))
+                (portRef I1 (instanceRef sum1))
+              )
+            )
+            (net in2
+              (joined
+                (portRef in2)
+                (portRef I1 (instanceRef carry1))
+                (portRef I2 (instanceRef sum1))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef I2 (instanceRef carry1))
+                (portRef I0 (instanceRef sum1))
+              )
+            )
+            (net sum
+              (joined
+                (portRef sum)
+                (portRef O (instanceRef sum1))
+              )
+            )
+            (net carry
+              (joined
+                (portRef carry)
+                (portRef O (instanceRef carry1))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename full_addr_NO13_F3 "full_addr")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port in1
+              (direction INPUT)
+            )
+            (port in2
+              (direction INPUT)
+            )
+            (port cin
+              (direction INPUT)
+            )
+            (port sum
+              (direction OUTPUT)
+            )
+            (port carry
+              (direction OUTPUT)
+            )
+          )
+          (contents
+            (instance carry1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property INIT (string "E8") (owner "Xilinx"))
+            )
+            (instance sum1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property INIT (string "96") (owner "Xilinx"))
+            )
+            (net in1
+              (joined
+                (portRef in1)
+                (portRef I0 (instanceRef carry1))
+                (portRef I1 (instanceRef sum1))
+              )
+            )
+            (net in2
+              (joined
+                (portRef in2)
+                (portRef I1 (instanceRef carry1))
+                (portRef I2 (instanceRef sum1))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef I2 (instanceRef carry1))
+                (portRef I0 (instanceRef sum1))
+              )
+            )
+            (net sum
+              (joined
+                (portRef sum)
+                (portRef O (instanceRef sum1))
+              )
+            )
+            (net carry
+              (joined
+                (portRef carry)
+                (portRef O (instanceRef carry1))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename full_addr_NO12_F4 "full_addr")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port in1
+              (direction INPUT)
+            )
+            (port in2
+              (direction INPUT)
+            )
+            (port cin
+              (direction INPUT)
+            )
+            (port sum
+              (direction OUTPUT)
+            )
+            (port carry
+              (direction OUTPUT)
+            )
+          )
+          (contents
+            (instance carry1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property INIT (string "E8") (owner "Xilinx"))
+            )
+            (instance sum1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property INIT (string "96") (owner "Xilinx"))
+            )
+            (net in1
+              (joined
+                (portRef in1)
+                (portRef I0 (instanceRef carry1))
+                (portRef I1 (instanceRef sum1))
+              )
+            )
+            (net in2
+              (joined
+                (portRef in2)
+                (portRef I1 (instanceRef carry1))
+                (portRef I2 (instanceRef sum1))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef I2 (instanceRef carry1))
+                (portRef I0 (instanceRef sum1))
+              )
+            )
+            (net sum
+              (joined
+                (portRef sum)
+                (portRef O (instanceRef sum1))
+              )
+            )
+            (net carry
+              (joined
+                (portRef carry)
+                (portRef O (instanceRef carry1))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename full_addr_NO11_F5 "full_addr")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port in1
+              (direction INPUT)
+            )
+            (port in2
+              (direction INPUT)
+            )
+            (port cin
+              (direction INPUT)
+            )
+            (port sum
+              (direction OUTPUT)
+            )
+            (port carry
+              (direction OUTPUT)
+            )
+          )
+          (contents
+            (instance carry1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___8___carry1") (owner "Xilinx"))
+              (property INIT (string "E8") (owner "Xilinx"))
+            )
+            (instance sum1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___8___carry1") (owner "Xilinx"))
+              (property INIT (string "96") (owner "Xilinx"))
+            )
+            (net in1
+              (joined
+                (portRef in1)
+                (portRef I0 (instanceRef carry1))
+                (portRef I1 (instanceRef sum1))
+              )
+            )
+            (net in2
+              (joined
+                (portRef in2)
+                (portRef I1 (instanceRef carry1))
+                (portRef I2 (instanceRef sum1))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef I2 (instanceRef carry1))
+                (portRef I0 (instanceRef sum1))
+              )
+            )
+            (net sum
+              (joined
+                (portRef sum)
+                (portRef O (instanceRef sum1))
+              )
+            )
+            (net carry
+              (joined
+                (portRef carry)
+                (portRef O (instanceRef carry1))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename full_addr_NO10_F6 "full_addr")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port in1
+              (direction INPUT)
+            )
+            (port in2
+              (direction INPUT)
+            )
+            (port cin
+              (direction INPUT)
+            )
+            (port sum
+              (direction OUTPUT)
+            )
+            (port carry
+              (direction OUTPUT)
+            )
+          )
+          (contents
+            (instance carry1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___7___carry1") (owner "Xilinx"))
+              (property INIT (string "E8") (owner "Xilinx"))
+            )
+            (instance sum1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___7___carry1") (owner "Xilinx"))
+              (property INIT (string "96") (owner "Xilinx"))
+            )
+            (net in1
+              (joined
+                (portRef in1)
+                (portRef I0 (instanceRef carry1))
+                (portRef I1 (instanceRef sum1))
+              )
+            )
+            (net in2
+              (joined
+                (portRef in2)
+                (portRef I1 (instanceRef carry1))
+                (portRef I2 (instanceRef sum1))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef I2 (instanceRef carry1))
+                (portRef I0 (instanceRef sum1))
+              )
+            )
+            (net sum
+              (joined
+                (portRef sum)
+                (portRef O (instanceRef sum1))
+              )
+            )
+            (net carry
+              (joined
+                (portRef carry)
+                (portRef O (instanceRef carry1))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename full_addr_NO9_F7 "full_addr")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port in1
+              (direction INPUT)
+            )
+            (port in2
+              (direction INPUT)
+            )
+            (port cin
+              (direction INPUT)
+            )
+            (port sum
+              (direction OUTPUT)
+            )
+            (port carry
+              (direction OUTPUT)
+            )
+          )
+          (contents
+            (instance carry1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___6___carry1") (owner "Xilinx"))
+              (property INIT (string "E8") (owner "Xilinx"))
+            )
+            (instance sum1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___6___carry1") (owner "Xilinx"))
+              (property INIT (string "96") (owner "Xilinx"))
+            )
+            (net in1
+              (joined
+                (portRef in1)
+                (portRef I0 (instanceRef carry1))
+                (portRef I1 (instanceRef sum1))
+              )
+            )
+            (net in2
+              (joined
+                (portRef in2)
+                (portRef I1 (instanceRef carry1))
+                (portRef I2 (instanceRef sum1))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef I2 (instanceRef carry1))
+                (portRef I0 (instanceRef sum1))
+              )
+            )
+            (net sum
+              (joined
+                (portRef sum)
+                (portRef O (instanceRef sum1))
+              )
+            )
+            (net carry
+              (joined
+                (portRef carry)
+                (portRef O (instanceRef carry1))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename full_addr_NO8_F8 "full_addr")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port in1
+              (direction INPUT)
+            )
+            (port in2
+              (direction INPUT)
+            )
+            (port cin
+              (direction INPUT)
+            )
+            (port sum
+              (direction OUTPUT)
+            )
+            (port carry
+              (direction OUTPUT)
+            )
+          )
+          (contents
+            (instance carry1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___5___carry1") (owner "Xilinx"))
+              (property INIT (string "E8") (owner "Xilinx"))
+            )
+            (instance sum1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___5___carry1") (owner "Xilinx"))
+              (property INIT (string "96") (owner "Xilinx"))
+            )
+            (net in1
+              (joined
+                (portRef in1)
+                (portRef I0 (instanceRef carry1))
+                (portRef I1 (instanceRef sum1))
+              )
+            )
+            (net in2
+              (joined
+                (portRef in2)
+                (portRef I1 (instanceRef carry1))
+                (portRef I2 (instanceRef sum1))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef I2 (instanceRef carry1))
+                (portRef I0 (instanceRef sum1))
+              )
+            )
+            (net sum
+              (joined
+                (portRef sum)
+                (portRef O (instanceRef sum1))
+              )
+            )
+            (net carry
+              (joined
+                (portRef carry)
+                (portRef O (instanceRef carry1))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename RCA_8_NO1_A1 "RCA_8")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port cin
+              (direction INPUT)
+            )
+            (port cout
+              (direction OUTPUT)
+            )
+            (port (array (rename A "A<7:0>") 8)
+              (direction INPUT))
+            (port (array (rename B "B<7:0>") 8)
+              (direction INPUT))
+            (port (array (rename S "S<7:0>") 8)
+              (direction OUTPUT))
+          )
+          (contents
+            (instance F8
+              (viewRef view_1 (cellRef full_addr_NO8_F8 (libraryRef wrapper_RCA_16_lib)))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 8) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 12) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "full_addr_NO8_F8") (owner "Xilinx"))
+            )
+            (instance F7
+              (viewRef view_1 (cellRef full_addr_NO9_F7 (libraryRef wrapper_RCA_16_lib)))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 9) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 13) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "full_addr_NO9_F7") (owner "Xilinx"))
+            )
+            (instance F6
+              (viewRef view_1 (cellRef full_addr_NO10_F6 (libraryRef wrapper_RCA_16_lib)))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 10) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 14) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "full_addr_NO10_F6") (owner "Xilinx"))
+            )
+            (instance F5
+              (viewRef view_1 (cellRef full_addr_NO11_F5 (libraryRef wrapper_RCA_16_lib)))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 11) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 15) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "full_addr_NO11_F5") (owner "Xilinx"))
+            )
+            (instance F4
+              (viewRef view_1 (cellRef full_addr_NO12_F4 (libraryRef wrapper_RCA_16_lib)))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 12) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 16) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "full_addr_NO12_F4") (owner "Xilinx"))
+            )
+            (instance F3
+              (viewRef view_1 (cellRef full_addr_NO13_F3 (libraryRef wrapper_RCA_16_lib)))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 13) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 17) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "full_addr_NO13_F3") (owner "Xilinx"))
+            )
+            (instance F2
+              (viewRef view_1 (cellRef full_addr_NO14_F2 (libraryRef wrapper_RCA_16_lib)))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 14) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 18) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "full_addr_NO14_F2") (owner "Xilinx"))
+            )
+            (instance F1
+              (viewRef view_1 (cellRef full_addr_NO15_F1 (libraryRef wrapper_RCA_16_lib)))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 15) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 19) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "full_addr_NO15_F1") (owner "Xilinx"))
+            )
+            (net (rename A_0_ "A<0>")
+              (joined
+                (portRef (member A 7))
+                (portRef in1 (instanceRef F1))
+              )
+            )
+            (net (rename A_1_ "A<1>")
+              (joined
+                (portRef (member A 6))
+                (portRef in1 (instanceRef F2))
+              )
+            )
+            (net (rename A_2_ "A<2>")
+              (joined
+                (portRef (member A 5))
+                (portRef in1 (instanceRef F3))
+              )
+            )
+            (net (rename A_3_ "A<3>")
+              (joined
+                (portRef (member A 4))
+                (portRef in1 (instanceRef F4))
+              )
+            )
+            (net (rename A_4_ "A<4>")
+              (joined
+                (portRef (member A 3))
+                (portRef in1 (instanceRef F5))
+              )
+            )
+            (net (rename A_5_ "A<5>")
+              (joined
+                (portRef (member A 2))
+                (portRef in1 (instanceRef F6))
+              )
+            )
+            (net (rename A_6_ "A<6>")
+              (joined
+                (portRef (member A 1))
+                (portRef in1 (instanceRef F7))
+              )
+            )
+            (net (rename A_7_ "A<7>")
+              (joined
+                (portRef (member A 0))
+                (portRef in1 (instanceRef F8))
+              )
+            )
+            (net (rename B_0_ "B<0>")
+              (joined
+                (portRef (member B 7))
+                (portRef in2 (instanceRef F1))
+              )
+            )
+            (net (rename B_1_ "B<1>")
+              (joined
+                (portRef (member B 6))
+                (portRef in2 (instanceRef F2))
+              )
+            )
+            (net (rename B_2_ "B<2>")
+              (joined
+                (portRef (member B 5))
+                (portRef in2 (instanceRef F3))
+              )
+            )
+            (net (rename B_3_ "B<3>")
+              (joined
+                (portRef (member B 4))
+                (portRef in2 (instanceRef F4))
+              )
+            )
+            (net (rename B_4_ "B<4>")
+              (joined
+                (portRef (member B 3))
+                (portRef in2 (instanceRef F5))
+              )
+            )
+            (net (rename B_5_ "B<5>")
+              (joined
+                (portRef (member B 2))
+                (portRef in2 (instanceRef F6))
+              )
+            )
+            (net (rename B_6_ "B<6>")
+              (joined
+                (portRef (member B 1))
+                (portRef in2 (instanceRef F7))
+              )
+            )
+            (net (rename B_7_ "B<7>")
+              (joined
+                (portRef (member B 0))
+                (portRef in2 (instanceRef F8))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef cin (instanceRef F1))
+              )
+            )
+            (net (rename S_0_ "S<0>")
+              (joined
+                (portRef (member S 7))
+                (portRef sum (instanceRef F1))
+              )
+            )
+            (net (rename carry_0_ "carry<0>")
+              (joined
+                (portRef cin (instanceRef F2))
+                (portRef carry (instanceRef F1))
+              )
+            )
+            (net (rename S_1_ "S<1>")
+              (joined
+                (portRef (member S 6))
+                (portRef sum (instanceRef F2))
+              )
+            )
+            (net (rename carry_1_ "carry<1>")
+              (joined
+                (portRef cin (instanceRef F3))
+                (portRef carry (instanceRef F2))
+              )
+            )
+            (net (rename S_2_ "S<2>")
+              (joined
+                (portRef (member S 5))
+                (portRef sum (instanceRef F3))
+              )
+            )
+            (net (rename carry_2_ "carry<2>")
+              (joined
+                (portRef cin (instanceRef F4))
+                (portRef carry (instanceRef F3))
+              )
+            )
+            (net (rename S_3_ "S<3>")
+              (joined
+                (portRef (member S 4))
+                (portRef sum (instanceRef F4))
+              )
+            )
+            (net (rename carry_3_ "carry<3>")
+              (joined
+                (portRef cin (instanceRef F5))
+                (portRef carry (instanceRef F4))
+              )
+            )
+            (net (rename S_4_ "S<4>")
+              (joined
+                (portRef (member S 3))
+                (portRef sum (instanceRef F5))
+              )
+            )
+            (net (rename carry_4_ "carry<4>")
+              (joined
+                (portRef cin (instanceRef F6))
+                (portRef carry (instanceRef F5))
+              )
+            )
+            (net (rename S_5_ "S<5>")
+              (joined
+                (portRef (member S 2))
+                (portRef sum (instanceRef F6))
+              )
+            )
+            (net (rename carry_5_ "carry<5>")
+              (joined
+                (portRef cin (instanceRef F7))
+                (portRef carry (instanceRef F6))
+              )
+            )
+            (net (rename S_6_ "S<6>")
+              (joined
+                (portRef (member S 1))
+                (portRef sum (instanceRef F7))
+              )
+            )
+            (net (rename carry_6_ "carry<6>")
+              (joined
+                (portRef cin (instanceRef F8))
+                (portRef carry (instanceRef F7))
+              )
+            )
+            (net (rename S_7_ "S<7>")
+              (joined
+                (portRef (member S 0))
+                (portRef sum (instanceRef F8))
+              )
+            )
+            (net cout
+              (joined
+                (portRef cout)
+                (portRef carry (instanceRef F8))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename full_addr_NO7_F1 "full_addr")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port in1
+              (direction INPUT)
+            )
+            (port in2
+              (direction INPUT)
+            )
+            (port cin
+              (direction INPUT)
+            )
+            (port sum
+              (direction OUTPUT)
+            )
+            (port carry
+              (direction OUTPUT)
+            )
+          )
+          (contents
+            (instance carry1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___4___carry1") (owner "Xilinx"))
+              (property INIT (string "E8") (owner "Xilinx"))
+            )
+            (instance sum1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___4___carry1") (owner "Xilinx"))
+              (property INIT (string "96") (owner "Xilinx"))
+            )
+            (net in1
+              (joined
+                (portRef in1)
+                (portRef I0 (instanceRef carry1))
+                (portRef I1 (instanceRef sum1))
+              )
+            )
+            (net in2
+              (joined
+                (portRef in2)
+                (portRef I1 (instanceRef carry1))
+                (portRef I2 (instanceRef sum1))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef I2 (instanceRef carry1))
+                (portRef I0 (instanceRef sum1))
+              )
+            )
+            (net sum
+              (joined
+                (portRef sum)
+                (portRef O (instanceRef sum1))
+              )
+            )
+            (net carry
+              (joined
+                (portRef carry)
+                (portRef O (instanceRef carry1))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename full_addr_NO6_F2 "full_addr")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port in1
+              (direction INPUT)
+            )
+            (port in2
+              (direction INPUT)
+            )
+            (port cin
+              (direction INPUT)
+            )
+            (port sum
+              (direction OUTPUT)
+            )
+            (port carry
+              (direction OUTPUT)
+            )
+          )
+          (contents
+            (instance carry1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___3___carry1") (owner "Xilinx"))
+              (property INIT (string "E8") (owner "Xilinx"))
+            )
+            (instance sum1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___3___carry1") (owner "Xilinx"))
+              (property INIT (string "96") (owner "Xilinx"))
+            )
+            (net in1
+              (joined
+                (portRef in1)
+                (portRef I0 (instanceRef carry1))
+                (portRef I1 (instanceRef sum1))
+              )
+            )
+            (net in2
+              (joined
+                (portRef in2)
+                (portRef I1 (instanceRef carry1))
+                (portRef I2 (instanceRef sum1))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef I2 (instanceRef carry1))
+                (portRef I0 (instanceRef sum1))
+              )
+            )
+            (net sum
+              (joined
+                (portRef sum)
+                (portRef O (instanceRef sum1))
+              )
+            )
+            (net carry
+              (joined
+                (portRef carry)
+                (portRef O (instanceRef carry1))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename full_addr_NO5_F3 "full_addr")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port in1
+              (direction INPUT)
+            )
+            (port in2
+              (direction INPUT)
+            )
+            (port cin
+              (direction INPUT)
+            )
+            (port sum
+              (direction OUTPUT)
+            )
+            (port carry
+              (direction OUTPUT)
+            )
+          )
+          (contents
+            (instance carry1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___2___carry1") (owner "Xilinx"))
+              (property INIT (string "E8") (owner "Xilinx"))
+            )
+            (instance sum1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___2___carry1") (owner "Xilinx"))
+              (property INIT (string "96") (owner "Xilinx"))
+            )
+            (net in1
+              (joined
+                (portRef in1)
+                (portRef I0 (instanceRef carry1))
+                (portRef I1 (instanceRef sum1))
+              )
+            )
+            (net in2
+              (joined
+                (portRef in2)
+                (portRef I1 (instanceRef carry1))
+                (portRef I2 (instanceRef sum1))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef I2 (instanceRef carry1))
+                (portRef I0 (instanceRef sum1))
+              )
+            )
+            (net sum
+              (joined
+                (portRef sum)
+                (portRef O (instanceRef sum1))
+              )
+            )
+            (net carry
+              (joined
+                (portRef carry)
+                (portRef O (instanceRef carry1))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename full_addr_NO4_F4 "full_addr")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port in1
+              (direction INPUT)
+            )
+            (port in2
+              (direction INPUT)
+            )
+            (port cin
+              (direction INPUT)
+            )
+            (port sum
+              (direction OUTPUT)
+            )
+            (port carry
+              (direction OUTPUT)
+            )
+          )
+          (contents
+            (instance carry1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___1___carry1") (owner "Xilinx"))
+              (property INIT (string "E8") (owner "Xilinx"))
+            )
+            (instance sum1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___1___carry1") (owner "Xilinx"))
+              (property INIT (string "96") (owner "Xilinx"))
+            )
+            (net in1
+              (joined
+                (portRef in1)
+                (portRef I0 (instanceRef carry1))
+                (portRef I1 (instanceRef sum1))
+              )
+            )
+            (net in2
+              (joined
+                (portRef in2)
+                (portRef I1 (instanceRef carry1))
+                (portRef I0 (instanceRef sum1))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef I2 (instanceRef carry1))
+                (portRef I2 (instanceRef sum1))
+              )
+            )
+            (net sum
+              (joined
+                (portRef sum)
+                (portRef O (instanceRef sum1))
+              )
+            )
+            (net carry
+              (joined
+                (portRef carry)
+                (portRef O (instanceRef carry1))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename full_addr_NO3_F5 "full_addr")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port in1
+              (direction INPUT)
+            )
+            (port in2
+              (direction INPUT)
+            )
+            (port cin
+              (direction INPUT)
+            )
+            (port sum
+              (direction OUTPUT)
+            )
+            (port carry
+              (direction OUTPUT)
+            )
+          )
+          (contents
+            (instance carry1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___0___carry1") (owner "Xilinx"))
+              (property INIT (string "E8") (owner "Xilinx"))
+            )
+            (instance sum1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property PK_HLUTNM (string "___XLNM___0___carry1") (owner "Xilinx"))
+              (property INIT (string "96") (owner "Xilinx"))
+            )
+            (net in1
+              (joined
+                (portRef in1)
+                (portRef I0 (instanceRef carry1))
+                (portRef I1 (instanceRef sum1))
+              )
+            )
+            (net in2
+              (joined
+                (portRef in2)
+                (portRef I1 (instanceRef carry1))
+                (portRef I0 (instanceRef sum1))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef I2 (instanceRef carry1))
+                (portRef I2 (instanceRef sum1))
+              )
+            )
+            (net sum
+              (joined
+                (portRef sum)
+                (portRef O (instanceRef sum1))
+              )
+            )
+            (net carry
+              (joined
+                (portRef carry)
+                (portRef O (instanceRef carry1))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename full_addr_NO2_F6 "full_addr")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port in1
+              (direction INPUT)
+            )
+            (port in2
+              (direction INPUT)
+            )
+            (port cin
+              (direction INPUT)
+            )
+            (port sum
+              (direction OUTPUT)
+            )
+            (port carry
+              (direction OUTPUT)
+            )
+          )
+          (contents
+            (instance carry1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property INIT (string "E8") (owner "Xilinx"))
+            )
+            (instance sum1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property INIT (string "96") (owner "Xilinx"))
+            )
+            (net in1
+              (joined
+                (portRef in1)
+                (portRef I0 (instanceRef carry1))
+                (portRef I1 (instanceRef sum1))
+              )
+            )
+            (net in2
+              (joined
+                (portRef in2)
+                (portRef I1 (instanceRef carry1))
+                (portRef I0 (instanceRef sum1))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef I2 (instanceRef carry1))
+                (portRef I2 (instanceRef sum1))
+              )
+            )
+            (net sum
+              (joined
+                (portRef sum)
+                (portRef O (instanceRef sum1))
+              )
+            )
+            (net carry
+              (joined
+                (portRef carry)
+                (portRef O (instanceRef carry1))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename full_addr_NO1_F7 "full_addr")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port in1
+              (direction INPUT)
+            )
+            (port in2
+              (direction INPUT)
+            )
+            (port cin
+              (direction INPUT)
+            )
+            (port sum
+              (direction OUTPUT)
+            )
+            (port carry
+              (direction OUTPUT)
+            )
+          )
+          (contents
+            (instance carry1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property INIT (string "E8") (owner "Xilinx"))
+            )
+            (instance sum1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property INIT (string "96") (owner "Xilinx"))
+            )
+            (net in1
+              (joined
+                (portRef in1)
+                (portRef I0 (instanceRef carry1))
+                (portRef I1 (instanceRef sum1))
+              )
+            )
+            (net in2
+              (joined
+                (portRef in2)
+                (portRef I1 (instanceRef carry1))
+                (portRef I0 (instanceRef sum1))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef I2 (instanceRef carry1))
+                (portRef I2 (instanceRef sum1))
+              )
+            )
+            (net sum
+              (joined
+                (portRef sum)
+                (portRef O (instanceRef sum1))
+              )
+            )
+            (net carry
+              (joined
+                (portRef carry)
+                (portRef O (instanceRef carry1))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename full_addr_F8 "full_addr")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port in1
+              (direction INPUT)
+            )
+            (port in2
+              (direction INPUT)
+            )
+            (port cin
+              (direction INPUT)
+            )
+            (port sum
+              (direction OUTPUT)
+            )
+            (port carry
+              (direction OUTPUT)
+            )
+          )
+          (contents
+            (instance carry1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property INIT (string "E8") (owner "Xilinx"))
+            )
+            (instance sum1
+              (viewRef view_1 (cellRef LUT3 (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+              (property INIT (string "96") (owner "Xilinx"))
+            )
+            (net in1
+              (joined
+                (portRef in1)
+                (portRef I0 (instanceRef carry1))
+                (portRef I1 (instanceRef sum1))
+              )
+            )
+            (net in2
+              (joined
+                (portRef in2)
+                (portRef I1 (instanceRef carry1))
+                (portRef I0 (instanceRef sum1))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef I2 (instanceRef carry1))
+                (portRef I2 (instanceRef sum1))
+              )
+            )
+            (net sum
+              (joined
+                (portRef sum)
+                (portRef O (instanceRef sum1))
+              )
+            )
+            (net carry
+              (joined
+                (portRef carry)
+                (portRef O (instanceRef carry1))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename RCA_8_A2 "RCA_8")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port cin
+              (direction INPUT)
+            )
+            (port cout
+              (direction OUTPUT)
+            )
+            (port (array (rename A "A<7:0>") 8)
+              (direction INPUT))
+            (port (array (rename B "B<7:0>") 8)
+              (direction INPUT))
+            (port (array (rename S "S<7:0>") 8)
+              (direction OUTPUT))
+          )
+          (contents
+            (instance F8
+              (viewRef view_1 (cellRef full_addr_F8 (libraryRef wrapper_RCA_16_lib)))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 0) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 3) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "full_addr_F8") (owner "Xilinx"))
+            )
+            (instance F7
+              (viewRef view_1 (cellRef full_addr_NO1_F7 (libraryRef wrapper_RCA_16_lib)))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 1) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 4) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "full_addr_NO1_F7") (owner "Xilinx"))
+            )
+            (instance F6
+              (viewRef view_1 (cellRef full_addr_NO2_F6 (libraryRef wrapper_RCA_16_lib)))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 2) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 5) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "full_addr_NO2_F6") (owner "Xilinx"))
+            )
+            (instance F5
+              (viewRef view_1 (cellRef full_addr_NO3_F5 (libraryRef wrapper_RCA_16_lib)))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 3) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 6) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "full_addr_NO3_F5") (owner "Xilinx"))
+            )
+            (instance F4
+              (viewRef view_1 (cellRef full_addr_NO4_F4 (libraryRef wrapper_RCA_16_lib)))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 4) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 7) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "full_addr_NO4_F4") (owner "Xilinx"))
+            )
+            (instance F3
+              (viewRef view_1 (cellRef full_addr_NO5_F3 (libraryRef wrapper_RCA_16_lib)))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 5) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 8) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "full_addr_NO5_F3") (owner "Xilinx"))
+            )
+            (instance F2
+              (viewRef view_1 (cellRef full_addr_NO6_F2 (libraryRef wrapper_RCA_16_lib)))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 6) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 9) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "full_addr_NO6_F2") (owner "Xilinx"))
+            )
+            (instance F1
+              (viewRef view_1 (cellRef full_addr_NO7_F1 (libraryRef wrapper_RCA_16_lib)))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 7) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 10) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "full_addr_NO7_F1") (owner "Xilinx"))
+            )
+            (net (rename A_0_ "A<0>")
+              (joined
+                (portRef (member A 7))
+                (portRef in1 (instanceRef F1))
+              )
+            )
+            (net (rename A_1_ "A<1>")
+              (joined
+                (portRef (member A 6))
+                (portRef in1 (instanceRef F2))
+              )
+            )
+            (net (rename A_2_ "A<2>")
+              (joined
+                (portRef (member A 5))
+                (portRef in1 (instanceRef F3))
+              )
+            )
+            (net (rename A_3_ "A<3>")
+              (joined
+                (portRef (member A 4))
+                (portRef in1 (instanceRef F4))
+              )
+            )
+            (net (rename A_4_ "A<4>")
+              (joined
+                (portRef (member A 3))
+                (portRef in1 (instanceRef F5))
+              )
+            )
+            (net (rename A_5_ "A<5>")
+              (joined
+                (portRef (member A 2))
+                (portRef in1 (instanceRef F6))
+              )
+            )
+            (net (rename A_6_ "A<6>")
+              (joined
+                (portRef (member A 1))
+                (portRef in1 (instanceRef F7))
+              )
+            )
+            (net (rename A_7_ "A<7>")
+              (joined
+                (portRef (member A 0))
+                (portRef in1 (instanceRef F8))
+              )
+            )
+            (net (rename B_0_ "B<0>")
+              (joined
+                (portRef (member B 7))
+                (portRef in2 (instanceRef F1))
+              )
+            )
+            (net (rename B_1_ "B<1>")
+              (joined
+                (portRef (member B 6))
+                (portRef in2 (instanceRef F2))
+              )
+            )
+            (net (rename B_2_ "B<2>")
+              (joined
+                (portRef (member B 5))
+                (portRef in2 (instanceRef F3))
+              )
+            )
+            (net (rename B_3_ "B<3>")
+              (joined
+                (portRef (member B 4))
+                (portRef in2 (instanceRef F4))
+              )
+            )
+            (net (rename B_4_ "B<4>")
+              (joined
+                (portRef (member B 3))
+                (portRef in2 (instanceRef F5))
+              )
+            )
+            (net (rename B_5_ "B<5>")
+              (joined
+                (portRef (member B 2))
+                (portRef in2 (instanceRef F6))
+              )
+            )
+            (net (rename B_6_ "B<6>")
+              (joined
+                (portRef (member B 1))
+                (portRef in2 (instanceRef F7))
+              )
+            )
+            (net (rename B_7_ "B<7>")
+              (joined
+                (portRef (member B 0))
+                (portRef in2 (instanceRef F8))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef cin (instanceRef F1))
+              )
+            )
+            (net (rename S_0_ "S<0>")
+              (joined
+                (portRef (member S 7))
+                (portRef sum (instanceRef F1))
+              )
+            )
+            (net (rename carry_0_ "carry<0>")
+              (joined
+                (portRef cin (instanceRef F2))
+                (portRef carry (instanceRef F1))
+              )
+            )
+            (net (rename S_1_ "S<1>")
+              (joined
+                (portRef (member S 6))
+                (portRef sum (instanceRef F2))
+              )
+            )
+            (net (rename carry_1_ "carry<1>")
+              (joined
+                (portRef cin (instanceRef F3))
+                (portRef carry (instanceRef F2))
+              )
+            )
+            (net (rename S_2_ "S<2>")
+              (joined
+                (portRef (member S 5))
+                (portRef sum (instanceRef F3))
+              )
+            )
+            (net (rename carry_2_ "carry<2>")
+              (joined
+                (portRef cin (instanceRef F4))
+                (portRef carry (instanceRef F3))
+              )
+            )
+            (net (rename S_3_ "S<3>")
+              (joined
+                (portRef (member S 4))
+                (portRef sum (instanceRef F4))
+              )
+            )
+            (net (rename carry_3_ "carry<3>")
+              (joined
+                (portRef cin (instanceRef F5))
+                (portRef carry (instanceRef F4))
+              )
+            )
+            (net (rename S_4_ "S<4>")
+              (joined
+                (portRef (member S 3))
+                (portRef sum (instanceRef F5))
+              )
+            )
+            (net (rename carry_4_ "carry<4>")
+              (joined
+                (portRef cin (instanceRef F6))
+                (portRef carry (instanceRef F5))
+              )
+            )
+            (net (rename S_5_ "S<5>")
+              (joined
+                (portRef (member S 2))
+                (portRef sum (instanceRef F6))
+              )
+            )
+            (net (rename carry_5_ "carry<5>")
+              (joined
+                (portRef cin (instanceRef F7))
+                (portRef carry (instanceRef F6))
+              )
+            )
+            (net (rename S_6_ "S<6>")
+              (joined
+                (portRef (member S 1))
+                (portRef sum (instanceRef F7))
+              )
+            )
+            (net (rename carry_6_ "carry<6>")
+              (joined
+                (portRef cin (instanceRef F8))
+                (portRef carry (instanceRef F7))
+              )
+            )
+            (net (rename S_7_ "S<7>")
+              (joined
+                (portRef (member S 0))
+                (portRef sum (instanceRef F8))
+              )
+            )
+            (net cout
+              (joined
+                (portRef cout)
+                (portRef carry (instanceRef F8))
+              )
+            )
+          )
+      )
+    )
+    (cell (rename RCA_16_A2 "RCA_16")
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port cin
+              (direction INPUT)
+            )
+            (port cout
+              (direction OUTPUT)
+            )
+            (port (array (rename A "A<15:0>") 16)
+              (direction INPUT))
+            (port (array (rename B "B<15:0>") 16)
+              (direction INPUT))
+            (port (array (rename S "S<15:0>") 16)
+              (direction OUTPUT))
+          )
+          (contents
+            (instance A2
+              (viewRef view_1 (cellRef RCA_8_A2 (libraryRef wrapper_RCA_16_lib)))
+              (property BUS_INFO (string "8:INPUT:A<7:0>") (owner "Xilinx"))
+              (property BUS_INFO (string "8:INPUT:B<7:0>") (owner "Xilinx"))
+              (property BUS_INFO (string "8:OUTPUT:S<7:0>") (owner "Xilinx"))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 0) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 2) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "RCA_8_A2") (owner "Xilinx"))
+            )
+            (instance A1
+              (viewRef view_1 (cellRef RCA_8_NO1_A1 (libraryRef wrapper_RCA_16_lib)))
+              (property BUS_INFO (string "8:INPUT:A<7:0>") (owner "Xilinx"))
+              (property BUS_INFO (string "8:INPUT:B<7:0>") (owner "Xilinx"))
+              (property BUS_INFO (string "8:OUTPUT:S<7:0>") (owner "Xilinx"))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 1) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 11) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "RCA_8_NO1_A1") (owner "Xilinx"))
+            )
+            (net (rename A_7_ "A<7>")
+              (joined
+                (portRef (member A 8))
+                (portRef (member A 0) (instanceRef A1))
+              )
+            )
+            (net (rename A_6_ "A<6>")
+              (joined
+                (portRef (member A 9))
+                (portRef (member A 1) (instanceRef A1))
+              )
+            )
+            (net (rename A_5_ "A<5>")
+              (joined
+                (portRef (member A 10))
+                (portRef (member A 2) (instanceRef A1))
+              )
+            )
+            (net (rename A_4_ "A<4>")
+              (joined
+                (portRef (member A 11))
+                (portRef (member A 3) (instanceRef A1))
+              )
+            )
+            (net (rename A_3_ "A<3>")
+              (joined
+                (portRef (member A 12))
+                (portRef (member A 4) (instanceRef A1))
+              )
+            )
+            (net (rename A_2_ "A<2>")
+              (joined
+                (portRef (member A 13))
+                (portRef (member A 5) (instanceRef A1))
+              )
+            )
+            (net (rename A_1_ "A<1>")
+              (joined
+                (portRef (member A 14))
+                (portRef (member A 6) (instanceRef A1))
+              )
+            )
+            (net (rename A_0_ "A<0>")
+              (joined
+                (portRef (member A 15))
+                (portRef (member A 7) (instanceRef A1))
+              )
+            )
+            (net (rename A_15_ "A<15>")
+              (joined
+                (portRef (member A 0))
+                (portRef (member A 0) (instanceRef A2))
+              )
+            )
+            (net (rename A_14_ "A<14>")
+              (joined
+                (portRef (member A 1))
+                (portRef (member A 1) (instanceRef A2))
+              )
+            )
+            (net (rename A_13_ "A<13>")
+              (joined
+                (portRef (member A 2))
+                (portRef (member A 2) (instanceRef A2))
+              )
+            )
+            (net (rename A_12_ "A<12>")
+              (joined
+                (portRef (member A 3))
+                (portRef (member A 3) (instanceRef A2))
+              )
+            )
+            (net (rename A_11_ "A<11>")
+              (joined
+                (portRef (member A 4))
+                (portRef (member A 4) (instanceRef A2))
+              )
+            )
+            (net (rename A_10_ "A<10>")
+              (joined
+                (portRef (member A 5))
+                (portRef (member A 5) (instanceRef A2))
+              )
+            )
+            (net (rename A_9_ "A<9>")
+              (joined
+                (portRef (member A 6))
+                (portRef (member A 6) (instanceRef A2))
+              )
+            )
+            (net (rename A_8_ "A<8>")
+              (joined
+                (portRef (member A 7))
+                (portRef (member A 7) (instanceRef A2))
+              )
+            )
+            (net (rename B_7_ "B<7>")
+              (joined
+                (portRef (member B 8))
+                (portRef (member B 0) (instanceRef A1))
+              )
+            )
+            (net (rename B_6_ "B<6>")
+              (joined
+                (portRef (member B 9))
+                (portRef (member B 1) (instanceRef A1))
+              )
+            )
+            (net (rename B_5_ "B<5>")
+              (joined
+                (portRef (member B 10))
+                (portRef (member B 2) (instanceRef A1))
+              )
+            )
+            (net (rename B_4_ "B<4>")
+              (joined
+                (portRef (member B 11))
+                (portRef (member B 3) (instanceRef A1))
+              )
+            )
+            (net (rename B_3_ "B<3>")
+              (joined
+                (portRef (member B 12))
+                (portRef (member B 4) (instanceRef A1))
+              )
+            )
+            (net (rename B_2_ "B<2>")
+              (joined
+                (portRef (member B 13))
+                (portRef (member B 5) (instanceRef A1))
+              )
+            )
+            (net (rename B_1_ "B<1>")
+              (joined
+                (portRef (member B 14))
+                (portRef (member B 6) (instanceRef A1))
+              )
+            )
+            (net (rename B_0_ "B<0>")
+              (joined
+                (portRef (member B 15))
+                (portRef (member B 7) (instanceRef A1))
+              )
+            )
+            (net (rename B_15_ "B<15>")
+              (joined
+                (portRef (member B 0))
+                (portRef (member B 0) (instanceRef A2))
+              )
+            )
+            (net (rename B_14_ "B<14>")
+              (joined
+                (portRef (member B 1))
+                (portRef (member B 1) (instanceRef A2))
+              )
+            )
+            (net (rename B_13_ "B<13>")
+              (joined
+                (portRef (member B 2))
+                (portRef (member B 2) (instanceRef A2))
+              )
+            )
+            (net (rename B_12_ "B<12>")
+              (joined
+                (portRef (member B 3))
+                (portRef (member B 3) (instanceRef A2))
+              )
+            )
+            (net (rename B_11_ "B<11>")
+              (joined
+                (portRef (member B 4))
+                (portRef (member B 4) (instanceRef A2))
+              )
+            )
+            (net (rename B_10_ "B<10>")
+              (joined
+                (portRef (member B 5))
+                (portRef (member B 5) (instanceRef A2))
+              )
+            )
+            (net (rename B_9_ "B<9>")
+              (joined
+                (portRef (member B 6))
+                (portRef (member B 6) (instanceRef A2))
+              )
+            )
+            (net (rename B_8_ "B<8>")
+              (joined
+                (portRef (member B 7))
+                (portRef (member B 7) (instanceRef A2))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef cin (instanceRef A1))
+              )
+            )
+            (net (rename S_7_ "S<7>")
+              (joined
+                (portRef (member S 8))
+                (portRef (member S 0) (instanceRef A1))
+              )
+            )
+            (net (rename S_6_ "S<6>")
+              (joined
+                (portRef (member S 9))
+                (portRef (member S 1) (instanceRef A1))
+              )
+            )
+            (net (rename S_5_ "S<5>")
+              (joined
+                (portRef (member S 10))
+                (portRef (member S 2) (instanceRef A1))
+              )
+            )
+            (net (rename S_4_ "S<4>")
+              (joined
+                (portRef (member S 11))
+                (portRef (member S 3) (instanceRef A1))
+              )
+            )
+            (net (rename S_3_ "S<3>")
+              (joined
+                (portRef (member S 12))
+                (portRef (member S 4) (instanceRef A1))
+              )
+            )
+            (net (rename S_2_ "S<2>")
+              (joined
+                (portRef (member S 13))
+                (portRef (member S 5) (instanceRef A1))
+              )
+            )
+            (net (rename S_1_ "S<1>")
+              (joined
+                (portRef (member S 14))
+                (portRef (member S 6) (instanceRef A1))
+              )
+            )
+            (net (rename S_0_ "S<0>")
+              (joined
+                (portRef (member S 15))
+                (portRef (member S 7) (instanceRef A1))
+              )
+            )
+            (net carry
+              (joined
+                (portRef cin (instanceRef A2))
+                (portRef cout (instanceRef A1))
+              )
+            )
+            (net (rename S_15_ "S<15>")
+              (joined
+                (portRef (member S 0))
+                (portRef (member S 0) (instanceRef A2))
+              )
+            )
+            (net (rename S_14_ "S<14>")
+              (joined
+                (portRef (member S 1))
+                (portRef (member S 1) (instanceRef A2))
+              )
+            )
+            (net (rename S_13_ "S<13>")
+              (joined
+                (portRef (member S 2))
+                (portRef (member S 2) (instanceRef A2))
+              )
+            )
+            (net (rename S_12_ "S<12>")
+              (joined
+                (portRef (member S 3))
+                (portRef (member S 3) (instanceRef A2))
+              )
+            )
+            (net (rename S_11_ "S<11>")
+              (joined
+                (portRef (member S 4))
+                (portRef (member S 4) (instanceRef A2))
+              )
+            )
+            (net (rename S_10_ "S<10>")
+              (joined
+                (portRef (member S 5))
+                (portRef (member S 5) (instanceRef A2))
+              )
+            )
+            (net (rename S_9_ "S<9>")
+              (joined
+                (portRef (member S 6))
+                (portRef (member S 6) (instanceRef A2))
+              )
+            )
+            (net (rename S_8_ "S<8>")
+              (joined
+                (portRef (member S 7))
+                (portRef (member S 7) (instanceRef A2))
+              )
+            )
+            (net cout
+              (joined
+                (portRef cout)
+                (portRef cout (instanceRef A2))
+              )
+            )
+          )
+      )
+    )
+    (cell wrapper_RCA_16
+      (cellType GENERIC)
+        (view view_1
+          (viewType NETLIST)
+          (interface
+            (port clk
+              (direction INPUT)
+            )
+            (port rst
+              (direction INPUT)
+            )
+            (port cin
+              (direction INPUT)
+            )
+            (port cout
+              (direction OUTPUT)
+            )
+            (port (array (rename A "A<15:0>") 16)
+              (direction INPUT))
+            (port (array (rename B "B<15:0>") 16)
+              (direction INPUT))
+            (port (array (rename S "S<15:0>") 16)
+              (direction OUTPUT))
+            (designator "xc7a100t-1-csg324")
+            (property TYPE (string "wrapper_RCA_16") (owner "Xilinx"))
+            (property BUS_INFO (string "16:INPUT:A<15:0>") (owner "Xilinx"))
+            (property BUS_INFO (string "16:INPUT:B<15:0>") (owner "Xilinx"))
+            (property BUS_INFO (string "16:OUTPUT:S<15:0>") (owner "Xilinx"))
+            (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+            (property SHREG_MIN_SIZE (string "2") (owner "Xilinx"))
+            (property SHREG_EXTRACT_NGC (string "YES") (owner "Xilinx"))
+            (property NLW_UNIQUE_ID (integer 0) (owner "Xilinx"))
+            (property NLW_MACRO_TAG (integer 0) (owner "Xilinx"))
+            (property NLW_MACRO_ALIAS (string "wrapper_RCA_16_wrapper_RCA_16") (owner "Xilinx"))
+          )
+          (contents
+            (instance (rename cin_reg_renamed_0 "cin_reg")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance A_reg_0
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance A_reg_1
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance A_reg_2
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance A_reg_3
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance A_reg_4
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance A_reg_5
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance A_reg_6
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance A_reg_7
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance A_reg_8
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance A_reg_9
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance A_reg_10
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance A_reg_11
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance A_reg_12
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance A_reg_13
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance A_reg_14
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance A_reg_15
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance B_reg_0
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance B_reg_1
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance B_reg_2
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance B_reg_3
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance B_reg_4
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance B_reg_5
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance B_reg_6
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance B_reg_7
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance B_reg_8
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance B_reg_9
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance B_reg_10
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance B_reg_11
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance B_reg_12
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance B_reg_13
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance B_reg_14
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance B_reg_15
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename S_0_renamed_1 "S_0")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename S_1_renamed_2 "S_1")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename S_2_renamed_3 "S_2")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename S_3_renamed_4 "S_3")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename S_4_renamed_5 "S_4")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename S_5_renamed_6 "S_5")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename S_6_renamed_7 "S_6")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename S_7_renamed_8 "S_7")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename S_8_renamed_9 "S_8")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename S_9_renamed_10 "S_9")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename S_10_renamed_11 "S_10")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename S_11_renamed_12 "S_11")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename S_12_renamed_13 "S_12")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename S_13_renamed_14 "S_13")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename S_14_renamed_15 "S_14")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename S_15_renamed_16 "S_15")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename cout_renamed_17 "cout")
+              (viewRef view_1 (cellRef FDR (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance A2
+              (viewRef view_1 (cellRef RCA_16_A2 (libraryRef wrapper_RCA_16_lib)))
+              (property BUS_INFO (string "16:INPUT:A<15:0>") (owner "Xilinx"))
+              (property BUS_INFO (string "16:INPUT:B<15:0>") (owner "Xilinx"))
+              (property BUS_INFO (string "16:OUTPUT:S<15:0>") (owner "Xilinx"))
+              (property KEEP_HIERARCHY (string "TRUE") (owner "Xilinx"))
+              (property NLW_UNIQUE_ID (integer 0) (owner "Xilinx"))
+              (property NLW_MACRO_TAG (integer 1) (owner "Xilinx"))
+              (property NLW_MACRO_ALIAS (string "RCA_16_A2") (owner "Xilinx"))
+            )
+            (instance (rename A_15_IBUF_renamed_18 "A_15_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename A_14_IBUF_renamed_19 "A_14_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename A_13_IBUF_renamed_20 "A_13_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename A_12_IBUF_renamed_21 "A_12_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename A_11_IBUF_renamed_22 "A_11_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename A_10_IBUF_renamed_23 "A_10_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename A_9_IBUF_renamed_24 "A_9_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename A_8_IBUF_renamed_25 "A_8_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename A_7_IBUF_renamed_26 "A_7_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename A_6_IBUF_renamed_27 "A_6_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename A_5_IBUF_renamed_28 "A_5_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename A_4_IBUF_renamed_29 "A_4_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename A_3_IBUF_renamed_30 "A_3_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename A_2_IBUF_renamed_31 "A_2_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename A_1_IBUF_renamed_32 "A_1_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename A_0_IBUF_renamed_33 "A_0_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename B_15_IBUF_renamed_34 "B_15_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename B_14_IBUF_renamed_35 "B_14_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename B_13_IBUF_renamed_36 "B_13_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename B_12_IBUF_renamed_37 "B_12_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename B_11_IBUF_renamed_38 "B_11_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename B_10_IBUF_renamed_39 "B_10_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename B_9_IBUF_renamed_40 "B_9_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename B_8_IBUF_renamed_41 "B_8_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename B_7_IBUF_renamed_42 "B_7_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename B_6_IBUF_renamed_43 "B_6_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename B_5_IBUF_renamed_44 "B_5_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename B_4_IBUF_renamed_45 "B_4_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename B_3_IBUF_renamed_46 "B_3_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename B_2_IBUF_renamed_47 "B_2_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename B_1_IBUF_renamed_48 "B_1_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename B_0_IBUF_renamed_49 "B_0_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename rst_IBUF_renamed_50 "rst_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename cin_IBUF_renamed_51 "cin_IBUF")
+              (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance S_15_OBUF
+              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance S_14_OBUF
+              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance S_13_OBUF
+              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance S_12_OBUF
+              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance S_11_OBUF
+              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance S_10_OBUF
+              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance S_9_OBUF
+              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance S_8_OBUF
+              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance S_7_OBUF
+              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance S_6_OBUF
+              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance S_5_OBUF
+              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance S_4_OBUF
+              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance S_3_OBUF
+              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance S_2_OBUF
+              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance S_1_OBUF
+              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance S_0_OBUF
+              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename cout_OBUF_renamed_52 "cout_OBUF")
+              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance (rename clk_BUFGP_renamed_53 "clk_BUFGP")
+              (viewRef view_1 (cellRef BUFGP (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (net A_15_IBUF
+              (joined
+                (portRef D (instanceRef A_reg_15))
+                (portRef O (instanceRef A_15_IBUF_renamed_18))
+              )
+            )
+            (net A_14_IBUF
+              (joined
+                (portRef D (instanceRef A_reg_14))
+                (portRef O (instanceRef A_14_IBUF_renamed_19))
+              )
+            )
+            (net A_13_IBUF
+              (joined
+                (portRef D (instanceRef A_reg_13))
+                (portRef O (instanceRef A_13_IBUF_renamed_20))
+              )
+            )
+            (net A_12_IBUF
+              (joined
+                (portRef D (instanceRef A_reg_12))
+                (portRef O (instanceRef A_12_IBUF_renamed_21))
+              )
+            )
+            (net A_11_IBUF
+              (joined
+                (portRef D (instanceRef A_reg_11))
+                (portRef O (instanceRef A_11_IBUF_renamed_22))
+              )
+            )
+            (net A_10_IBUF
+              (joined
+                (portRef D (instanceRef A_reg_10))
+                (portRef O (instanceRef A_10_IBUF_renamed_23))
+              )
+            )
+            (net A_9_IBUF
+              (joined
+                (portRef D (instanceRef A_reg_9))
+                (portRef O (instanceRef A_9_IBUF_renamed_24))
+              )
+            )
+            (net A_8_IBUF
+              (joined
+                (portRef D (instanceRef A_reg_8))
+                (portRef O (instanceRef A_8_IBUF_renamed_25))
+              )
+            )
+            (net A_7_IBUF
+              (joined
+                (portRef D (instanceRef A_reg_7))
+                (portRef O (instanceRef A_7_IBUF_renamed_26))
+              )
+            )
+            (net A_6_IBUF
+              (joined
+                (portRef D (instanceRef A_reg_6))
+                (portRef O (instanceRef A_6_IBUF_renamed_27))
+              )
+            )
+            (net A_5_IBUF
+              (joined
+                (portRef D (instanceRef A_reg_5))
+                (portRef O (instanceRef A_5_IBUF_renamed_28))
+              )
+            )
+            (net A_4_IBUF
+              (joined
+                (portRef D (instanceRef A_reg_4))
+                (portRef O (instanceRef A_4_IBUF_renamed_29))
+              )
+            )
+            (net A_3_IBUF
+              (joined
+                (portRef D (instanceRef A_reg_3))
+                (portRef O (instanceRef A_3_IBUF_renamed_30))
+              )
+            )
+            (net A_2_IBUF
+              (joined
+                (portRef D (instanceRef A_reg_2))
+                (portRef O (instanceRef A_2_IBUF_renamed_31))
+              )
+            )
+            (net A_1_IBUF
+              (joined
+                (portRef D (instanceRef A_reg_1))
+                (portRef O (instanceRef A_1_IBUF_renamed_32))
+              )
+            )
+            (net A_0_IBUF
+              (joined
+                (portRef D (instanceRef A_reg_0))
+                (portRef O (instanceRef A_0_IBUF_renamed_33))
+              )
+            )
+            (net B_15_IBUF
+              (joined
+                (portRef D (instanceRef B_reg_15))
+                (portRef O (instanceRef B_15_IBUF_renamed_34))
+              )
+            )
+            (net B_14_IBUF
+              (joined
+                (portRef D (instanceRef B_reg_14))
+                (portRef O (instanceRef B_14_IBUF_renamed_35))
+              )
+            )
+            (net B_13_IBUF
+              (joined
+                (portRef D (instanceRef B_reg_13))
+                (portRef O (instanceRef B_13_IBUF_renamed_36))
+              )
+            )
+            (net B_12_IBUF
+              (joined
+                (portRef D (instanceRef B_reg_12))
+                (portRef O (instanceRef B_12_IBUF_renamed_37))
+              )
+            )
+            (net B_11_IBUF
+              (joined
+                (portRef D (instanceRef B_reg_11))
+                (portRef O (instanceRef B_11_IBUF_renamed_38))
+              )
+            )
+            (net B_10_IBUF
+              (joined
+                (portRef D (instanceRef B_reg_10))
+                (portRef O (instanceRef B_10_IBUF_renamed_39))
+              )
+            )
+            (net B_9_IBUF
+              (joined
+                (portRef D (instanceRef B_reg_9))
+                (portRef O (instanceRef B_9_IBUF_renamed_40))
+              )
+            )
+            (net B_8_IBUF
+              (joined
+                (portRef D (instanceRef B_reg_8))
+                (portRef O (instanceRef B_8_IBUF_renamed_41))
+              )
+            )
+            (net B_7_IBUF
+              (joined
+                (portRef D (instanceRef B_reg_7))
+                (portRef O (instanceRef B_7_IBUF_renamed_42))
+              )
+            )
+            (net B_6_IBUF
+              (joined
+                (portRef D (instanceRef B_reg_6))
+                (portRef O (instanceRef B_6_IBUF_renamed_43))
+              )
+            )
+            (net B_5_IBUF
+              (joined
+                (portRef D (instanceRef B_reg_5))
+                (portRef O (instanceRef B_5_IBUF_renamed_44))
+              )
+            )
+            (net B_4_IBUF
+              (joined
+                (portRef D (instanceRef B_reg_4))
+                (portRef O (instanceRef B_4_IBUF_renamed_45))
+              )
+            )
+            (net B_3_IBUF
+              (joined
+                (portRef D (instanceRef B_reg_3))
+                (portRef O (instanceRef B_3_IBUF_renamed_46))
+              )
+            )
+            (net B_2_IBUF
+              (joined
+                (portRef D (instanceRef B_reg_2))
+                (portRef O (instanceRef B_2_IBUF_renamed_47))
+              )
+            )
+            (net B_1_IBUF
+              (joined
+                (portRef D (instanceRef B_reg_1))
+                (portRef O (instanceRef B_1_IBUF_renamed_48))
+              )
+            )
+            (net B_0_IBUF
+              (joined
+                (portRef D (instanceRef B_reg_0))
+                (portRef O (instanceRef B_0_IBUF_renamed_49))
+              )
+            )
+            (net clk_BUFGP
+              (joined
+                (portRef C (instanceRef cin_reg_renamed_0))
+                (portRef C (instanceRef A_reg_0))
+                (portRef C (instanceRef A_reg_1))
+                (portRef C (instanceRef A_reg_2))
+                (portRef C (instanceRef A_reg_3))
+                (portRef C (instanceRef A_reg_4))
+                (portRef C (instanceRef A_reg_5))
+                (portRef C (instanceRef A_reg_6))
+                (portRef C (instanceRef A_reg_7))
+                (portRef C (instanceRef A_reg_8))
+                (portRef C (instanceRef A_reg_9))
+                (portRef C (instanceRef A_reg_10))
+                (portRef C (instanceRef A_reg_11))
+                (portRef C (instanceRef A_reg_12))
+                (portRef C (instanceRef A_reg_13))
+                (portRef C (instanceRef A_reg_14))
+                (portRef C (instanceRef A_reg_15))
+                (portRef C (instanceRef B_reg_0))
+                (portRef C (instanceRef B_reg_1))
+                (portRef C (instanceRef B_reg_2))
+                (portRef C (instanceRef B_reg_3))
+                (portRef C (instanceRef B_reg_4))
+                (portRef C (instanceRef B_reg_5))
+                (portRef C (instanceRef B_reg_6))
+                (portRef C (instanceRef B_reg_7))
+                (portRef C (instanceRef B_reg_8))
+                (portRef C (instanceRef B_reg_9))
+                (portRef C (instanceRef B_reg_10))
+                (portRef C (instanceRef B_reg_11))
+                (portRef C (instanceRef B_reg_12))
+                (portRef C (instanceRef B_reg_13))
+                (portRef C (instanceRef B_reg_14))
+                (portRef C (instanceRef B_reg_15))
+                (portRef C (instanceRef S_0_renamed_1))
+                (portRef C (instanceRef S_1_renamed_2))
+                (portRef C (instanceRef S_2_renamed_3))
+                (portRef C (instanceRef S_3_renamed_4))
+                (portRef C (instanceRef S_4_renamed_5))
+                (portRef C (instanceRef S_5_renamed_6))
+                (portRef C (instanceRef S_6_renamed_7))
+                (portRef C (instanceRef S_7_renamed_8))
+                (portRef C (instanceRef S_8_renamed_9))
+                (portRef C (instanceRef S_9_renamed_10))
+                (portRef C (instanceRef S_10_renamed_11))
+                (portRef C (instanceRef S_11_renamed_12))
+                (portRef C (instanceRef S_12_renamed_13))
+                (portRef C (instanceRef S_13_renamed_14))
+                (portRef C (instanceRef S_14_renamed_15))
+                (portRef C (instanceRef S_15_renamed_16))
+                (portRef C (instanceRef cout_renamed_17))
+                (portRef O (instanceRef clk_BUFGP_renamed_53))
+              )
+            )
+            (net rst_IBUF
+              (joined
+                (portRef R (instanceRef cin_reg_renamed_0))
+                (portRef R (instanceRef A_reg_0))
+                (portRef R (instanceRef A_reg_1))
+                (portRef R (instanceRef A_reg_2))
+                (portRef R (instanceRef A_reg_3))
+                (portRef R (instanceRef A_reg_4))
+                (portRef R (instanceRef A_reg_5))
+                (portRef R (instanceRef A_reg_6))
+                (portRef R (instanceRef A_reg_7))
+                (portRef R (instanceRef A_reg_8))
+                (portRef R (instanceRef A_reg_9))
+                (portRef R (instanceRef A_reg_10))
+                (portRef R (instanceRef A_reg_11))
+                (portRef R (instanceRef A_reg_12))
+                (portRef R (instanceRef A_reg_13))
+                (portRef R (instanceRef A_reg_14))
+                (portRef R (instanceRef A_reg_15))
+                (portRef R (instanceRef B_reg_0))
+                (portRef R (instanceRef B_reg_1))
+                (portRef R (instanceRef B_reg_2))
+                (portRef R (instanceRef B_reg_3))
+                (portRef R (instanceRef B_reg_4))
+                (portRef R (instanceRef B_reg_5))
+                (portRef R (instanceRef B_reg_6))
+                (portRef R (instanceRef B_reg_7))
+                (portRef R (instanceRef B_reg_8))
+                (portRef R (instanceRef B_reg_9))
+                (portRef R (instanceRef B_reg_10))
+                (portRef R (instanceRef B_reg_11))
+                (portRef R (instanceRef B_reg_12))
+                (portRef R (instanceRef B_reg_13))
+                (portRef R (instanceRef B_reg_14))
+                (portRef R (instanceRef B_reg_15))
+                (portRef R (instanceRef S_0_renamed_1))
+                (portRef R (instanceRef S_1_renamed_2))
+                (portRef R (instanceRef S_2_renamed_3))
+                (portRef R (instanceRef S_3_renamed_4))
+                (portRef R (instanceRef S_4_renamed_5))
+                (portRef R (instanceRef S_5_renamed_6))
+                (portRef R (instanceRef S_6_renamed_7))
+                (portRef R (instanceRef S_7_renamed_8))
+                (portRef R (instanceRef S_8_renamed_9))
+                (portRef R (instanceRef S_9_renamed_10))
+                (portRef R (instanceRef S_10_renamed_11))
+                (portRef R (instanceRef S_11_renamed_12))
+                (portRef R (instanceRef S_12_renamed_13))
+                (portRef R (instanceRef S_13_renamed_14))
+                (portRef R (instanceRef S_14_renamed_15))
+                (portRef R (instanceRef S_15_renamed_16))
+                (portRef R (instanceRef cout_renamed_17))
+                (portRef O (instanceRef rst_IBUF_renamed_50))
+              )
+            )
+            (net cin_IBUF
+              (joined
+                (portRef D (instanceRef cin_reg_renamed_0))
+                (portRef O (instanceRef cin_IBUF_renamed_51))
+              )
+            )
+            (net (rename A_reg_15_ "A_reg<15>")
+              (joined
+                (portRef Q (instanceRef A_reg_15))
+                (portRef (member A 0) (instanceRef A2))
+              )
+            )
+            (net (rename A_reg_14_ "A_reg<14>")
+              (joined
+                (portRef Q (instanceRef A_reg_14))
+                (portRef (member A 1) (instanceRef A2))
+              )
+            )
+            (net (rename A_reg_13_ "A_reg<13>")
+              (joined
+                (portRef Q (instanceRef A_reg_13))
+                (portRef (member A 2) (instanceRef A2))
+              )
+            )
+            (net (rename A_reg_12_ "A_reg<12>")
+              (joined
+                (portRef Q (instanceRef A_reg_12))
+                (portRef (member A 3) (instanceRef A2))
+              )
+            )
+            (net (rename A_reg_11_ "A_reg<11>")
+              (joined
+                (portRef Q (instanceRef A_reg_11))
+                (portRef (member A 4) (instanceRef A2))
+              )
+            )
+            (net (rename A_reg_10_ "A_reg<10>")
+              (joined
+                (portRef Q (instanceRef A_reg_10))
+                (portRef (member A 5) (instanceRef A2))
+              )
+            )
+            (net (rename A_reg_9_ "A_reg<9>")
+              (joined
+                (portRef Q (instanceRef A_reg_9))
+                (portRef (member A 6) (instanceRef A2))
+              )
+            )
+            (net (rename A_reg_8_ "A_reg<8>")
+              (joined
+                (portRef Q (instanceRef A_reg_8))
+                (portRef (member A 7) (instanceRef A2))
+              )
+            )
+            (net (rename A_reg_7_ "A_reg<7>")
+              (joined
+                (portRef Q (instanceRef A_reg_7))
+                (portRef (member A 8) (instanceRef A2))
+              )
+            )
+            (net (rename A_reg_6_ "A_reg<6>")
+              (joined
+                (portRef Q (instanceRef A_reg_6))
+                (portRef (member A 9) (instanceRef A2))
+              )
+            )
+            (net (rename A_reg_5_ "A_reg<5>")
+              (joined
+                (portRef Q (instanceRef A_reg_5))
+                (portRef (member A 10) (instanceRef A2))
+              )
+            )
+            (net (rename A_reg_4_ "A_reg<4>")
+              (joined
+                (portRef Q (instanceRef A_reg_4))
+                (portRef (member A 11) (instanceRef A2))
+              )
+            )
+            (net (rename A_reg_3_ "A_reg<3>")
+              (joined
+                (portRef Q (instanceRef A_reg_3))
+                (portRef (member A 12) (instanceRef A2))
+              )
+            )
+            (net (rename A_reg_2_ "A_reg<2>")
+              (joined
+                (portRef Q (instanceRef A_reg_2))
+                (portRef (member A 13) (instanceRef A2))
+              )
+            )
+            (net (rename A_reg_1_ "A_reg<1>")
+              (joined
+                (portRef Q (instanceRef A_reg_1))
+                (portRef (member A 14) (instanceRef A2))
+              )
+            )
+            (net (rename A_reg_0_ "A_reg<0>")
+              (joined
+                (portRef Q (instanceRef A_reg_0))
+                (portRef (member A 15) (instanceRef A2))
+              )
+            )
+            (net (rename B_reg_15_ "B_reg<15>")
+              (joined
+                (portRef Q (instanceRef B_reg_15))
+                (portRef (member B 0) (instanceRef A2))
+              )
+            )
+            (net (rename B_reg_14_ "B_reg<14>")
+              (joined
+                (portRef Q (instanceRef B_reg_14))
+                (portRef (member B 1) (instanceRef A2))
+              )
+            )
+            (net (rename B_reg_13_ "B_reg<13>")
+              (joined
+                (portRef Q (instanceRef B_reg_13))
+                (portRef (member B 2) (instanceRef A2))
+              )
+            )
+            (net (rename B_reg_12_ "B_reg<12>")
+              (joined
+                (portRef Q (instanceRef B_reg_12))
+                (portRef (member B 3) (instanceRef A2))
+              )
+            )
+            (net (rename B_reg_11_ "B_reg<11>")
+              (joined
+                (portRef Q (instanceRef B_reg_11))
+                (portRef (member B 4) (instanceRef A2))
+              )
+            )
+            (net (rename B_reg_10_ "B_reg<10>")
+              (joined
+                (portRef Q (instanceRef B_reg_10))
+                (portRef (member B 5) (instanceRef A2))
+              )
+            )
+            (net (rename B_reg_9_ "B_reg<9>")
+              (joined
+                (portRef Q (instanceRef B_reg_9))
+                (portRef (member B 6) (instanceRef A2))
+              )
+            )
+            (net (rename B_reg_8_ "B_reg<8>")
+              (joined
+                (portRef Q (instanceRef B_reg_8))
+                (portRef (member B 7) (instanceRef A2))
+              )
+            )
+            (net (rename B_reg_7_ "B_reg<7>")
+              (joined
+                (portRef Q (instanceRef B_reg_7))
+                (portRef (member B 8) (instanceRef A2))
+              )
+            )
+            (net (rename B_reg_6_ "B_reg<6>")
+              (joined
+                (portRef Q (instanceRef B_reg_6))
+                (portRef (member B 9) (instanceRef A2))
+              )
+            )
+            (net (rename B_reg_5_ "B_reg<5>")
+              (joined
+                (portRef Q (instanceRef B_reg_5))
+                (portRef (member B 10) (instanceRef A2))
+              )
+            )
+            (net (rename B_reg_4_ "B_reg<4>")
+              (joined
+                (portRef Q (instanceRef B_reg_4))
+                (portRef (member B 11) (instanceRef A2))
+              )
+            )
+            (net (rename B_reg_3_ "B_reg<3>")
+              (joined
+                (portRef Q (instanceRef B_reg_3))
+                (portRef (member B 12) (instanceRef A2))
+              )
+            )
+            (net (rename B_reg_2_ "B_reg<2>")
+              (joined
+                (portRef Q (instanceRef B_reg_2))
+                (portRef (member B 13) (instanceRef A2))
+              )
+            )
+            (net (rename B_reg_1_ "B_reg<1>")
+              (joined
+                (portRef Q (instanceRef B_reg_1))
+                (portRef (member B 14) (instanceRef A2))
+              )
+            )
+            (net (rename B_reg_0_ "B_reg<0>")
+              (joined
+                (portRef Q (instanceRef B_reg_0))
+                (portRef (member B 15) (instanceRef A2))
+              )
+            )
+            (net cin_reg
+              (joined
+                (portRef Q (instanceRef cin_reg_renamed_0))
+                (portRef cin (instanceRef A2))
+              )
+            )
+            (net S_15
+              (joined
+                (portRef Q (instanceRef S_15_renamed_16))
+                (portRef I (instanceRef S_15_OBUF))
+              )
+            )
+            (net S_14
+              (joined
+                (portRef Q (instanceRef S_14_renamed_15))
+                (portRef I (instanceRef S_14_OBUF))
+              )
+            )
+            (net S_13
+              (joined
+                (portRef Q (instanceRef S_13_renamed_14))
+                (portRef I (instanceRef S_13_OBUF))
+              )
+            )
+            (net S_12
+              (joined
+                (portRef Q (instanceRef S_12_renamed_13))
+                (portRef I (instanceRef S_12_OBUF))
+              )
+            )
+            (net S_11
+              (joined
+                (portRef Q (instanceRef S_11_renamed_12))
+                (portRef I (instanceRef S_11_OBUF))
+              )
+            )
+            (net S_10
+              (joined
+                (portRef Q (instanceRef S_10_renamed_11))
+                (portRef I (instanceRef S_10_OBUF))
+              )
+            )
+            (net S_9
+              (joined
+                (portRef Q (instanceRef S_9_renamed_10))
+                (portRef I (instanceRef S_9_OBUF))
+              )
+            )
+            (net S_8
+              (joined
+                (portRef Q (instanceRef S_8_renamed_9))
+                (portRef I (instanceRef S_8_OBUF))
+              )
+            )
+            (net S_7
+              (joined
+                (portRef Q (instanceRef S_7_renamed_8))
+                (portRef I (instanceRef S_7_OBUF))
+              )
+            )
+            (net S_6
+              (joined
+                (portRef Q (instanceRef S_6_renamed_7))
+                (portRef I (instanceRef S_6_OBUF))
+              )
+            )
+            (net S_5
+              (joined
+                (portRef Q (instanceRef S_5_renamed_6))
+                (portRef I (instanceRef S_5_OBUF))
+              )
+            )
+            (net S_4
+              (joined
+                (portRef Q (instanceRef S_4_renamed_5))
+                (portRef I (instanceRef S_4_OBUF))
+              )
+            )
+            (net S_3
+              (joined
+                (portRef Q (instanceRef S_3_renamed_4))
+                (portRef I (instanceRef S_3_OBUF))
+              )
+            )
+            (net S_2
+              (joined
+                (portRef Q (instanceRef S_2_renamed_3))
+                (portRef I (instanceRef S_2_OBUF))
+              )
+            )
+            (net S_1
+              (joined
+                (portRef Q (instanceRef S_1_renamed_2))
+                (portRef I (instanceRef S_1_OBUF))
+              )
+            )
+            (net S_0
+              (joined
+                (portRef Q (instanceRef S_0_renamed_1))
+                (portRef I (instanceRef S_0_OBUF))
+              )
+            )
+            (net cout_OBUF
+              (joined
+                (portRef Q (instanceRef cout_renamed_17))
+                (portRef I (instanceRef cout_OBUF_renamed_52))
+              )
+            )
+            (net (rename S_net_15_ "S_net<15>")
+              (joined
+                (portRef D (instanceRef S_15_renamed_16))
+                (portRef (member S 0) (instanceRef A2))
+              )
+            )
+            (net (rename S_net_14_ "S_net<14>")
+              (joined
+                (portRef D (instanceRef S_14_renamed_15))
+                (portRef (member S 1) (instanceRef A2))
+              )
+            )
+            (net (rename S_net_13_ "S_net<13>")
+              (joined
+                (portRef D (instanceRef S_13_renamed_14))
+                (portRef (member S 2) (instanceRef A2))
+              )
+            )
+            (net (rename S_net_12_ "S_net<12>")
+              (joined
+                (portRef D (instanceRef S_12_renamed_13))
+                (portRef (member S 3) (instanceRef A2))
+              )
+            )
+            (net (rename S_net_11_ "S_net<11>")
+              (joined
+                (portRef D (instanceRef S_11_renamed_12))
+                (portRef (member S 4) (instanceRef A2))
+              )
+            )
+            (net (rename S_net_10_ "S_net<10>")
+              (joined
+                (portRef D (instanceRef S_10_renamed_11))
+                (portRef (member S 5) (instanceRef A2))
+              )
+            )
+            (net (rename S_net_9_ "S_net<9>")
+              (joined
+                (portRef D (instanceRef S_9_renamed_10))
+                (portRef (member S 6) (instanceRef A2))
+              )
+            )
+            (net (rename S_net_8_ "S_net<8>")
+              (joined
+                (portRef D (instanceRef S_8_renamed_9))
+                (portRef (member S 7) (instanceRef A2))
+              )
+            )
+            (net (rename S_net_7_ "S_net<7>")
+              (joined
+                (portRef D (instanceRef S_7_renamed_8))
+                (portRef (member S 8) (instanceRef A2))
+              )
+            )
+            (net (rename S_net_6_ "S_net<6>")
+              (joined
+                (portRef D (instanceRef S_6_renamed_7))
+                (portRef (member S 9) (instanceRef A2))
+              )
+            )
+            (net (rename S_net_5_ "S_net<5>")
+              (joined
+                (portRef D (instanceRef S_5_renamed_6))
+                (portRef (member S 10) (instanceRef A2))
+              )
+            )
+            (net (rename S_net_4_ "S_net<4>")
+              (joined
+                (portRef D (instanceRef S_4_renamed_5))
+                (portRef (member S 11) (instanceRef A2))
+              )
+            )
+            (net (rename S_net_3_ "S_net<3>")
+              (joined
+                (portRef D (instanceRef S_3_renamed_4))
+                (portRef (member S 12) (instanceRef A2))
+              )
+            )
+            (net (rename S_net_2_ "S_net<2>")
+              (joined
+                (portRef D (instanceRef S_2_renamed_3))
+                (portRef (member S 13) (instanceRef A2))
+              )
+            )
+            (net (rename S_net_1_ "S_net<1>")
+              (joined
+                (portRef D (instanceRef S_1_renamed_2))
+                (portRef (member S 14) (instanceRef A2))
+              )
+            )
+            (net (rename S_net_0_ "S_net<0>")
+              (joined
+                (portRef D (instanceRef S_0_renamed_1))
+                (portRef (member S 15) (instanceRef A2))
+              )
+            )
+            (net cout_net
+              (joined
+                (portRef D (instanceRef cout_renamed_17))
+                (portRef cout (instanceRef A2))
+              )
+            )
+            (net clk
+              (joined
+                (portRef clk)
+                (portRef I (instanceRef clk_BUFGP_renamed_53))
+              )
+            )
+            (net (rename A_15_ "A<15>")
+              (joined
+                (portRef (member A 0))
+                (portRef I (instanceRef A_15_IBUF_renamed_18))
+              )
+            )
+            (net (rename A_14_ "A<14>")
+              (joined
+                (portRef (member A 1))
+                (portRef I (instanceRef A_14_IBUF_renamed_19))
+              )
+            )
+            (net (rename A_13_ "A<13>")
+              (joined
+                (portRef (member A 2))
+                (portRef I (instanceRef A_13_IBUF_renamed_20))
+              )
+            )
+            (net (rename A_12_ "A<12>")
+              (joined
+                (portRef (member A 3))
+                (portRef I (instanceRef A_12_IBUF_renamed_21))
+              )
+            )
+            (net (rename A_11_ "A<11>")
+              (joined
+                (portRef (member A 4))
+                (portRef I (instanceRef A_11_IBUF_renamed_22))
+              )
+            )
+            (net (rename A_10_ "A<10>")
+              (joined
+                (portRef (member A 5))
+                (portRef I (instanceRef A_10_IBUF_renamed_23))
+              )
+            )
+            (net (rename A_9_ "A<9>")
+              (joined
+                (portRef (member A 6))
+                (portRef I (instanceRef A_9_IBUF_renamed_24))
+              )
+            )
+            (net (rename A_8_ "A<8>")
+              (joined
+                (portRef (member A 7))
+                (portRef I (instanceRef A_8_IBUF_renamed_25))
+              )
+            )
+            (net (rename A_7_ "A<7>")
+              (joined
+                (portRef (member A 8))
+                (portRef I (instanceRef A_7_IBUF_renamed_26))
+              )
+            )
+            (net (rename A_6_ "A<6>")
+              (joined
+                (portRef (member A 9))
+                (portRef I (instanceRef A_6_IBUF_renamed_27))
+              )
+            )
+            (net (rename A_5_ "A<5>")
+              (joined
+                (portRef (member A 10))
+                (portRef I (instanceRef A_5_IBUF_renamed_28))
+              )
+            )
+            (net (rename A_4_ "A<4>")
+              (joined
+                (portRef (member A 11))
+                (portRef I (instanceRef A_4_IBUF_renamed_29))
+              )
+            )
+            (net (rename A_3_ "A<3>")
+              (joined
+                (portRef (member A 12))
+                (portRef I (instanceRef A_3_IBUF_renamed_30))
+              )
+            )
+            (net (rename A_2_ "A<2>")
+              (joined
+                (portRef (member A 13))
+                (portRef I (instanceRef A_2_IBUF_renamed_31))
+              )
+            )
+            (net (rename A_1_ "A<1>")
+              (joined
+                (portRef (member A 14))
+                (portRef I (instanceRef A_1_IBUF_renamed_32))
+              )
+            )
+            (net (rename A_0_ "A<0>")
+              (joined
+                (portRef (member A 15))
+                (portRef I (instanceRef A_0_IBUF_renamed_33))
+              )
+            )
+            (net (rename B_15_ "B<15>")
+              (joined
+                (portRef (member B 0))
+                (portRef I (instanceRef B_15_IBUF_renamed_34))
+              )
+            )
+            (net (rename B_14_ "B<14>")
+              (joined
+                (portRef (member B 1))
+                (portRef I (instanceRef B_14_IBUF_renamed_35))
+              )
+            )
+            (net (rename B_13_ "B<13>")
+              (joined
+                (portRef (member B 2))
+                (portRef I (instanceRef B_13_IBUF_renamed_36))
+              )
+            )
+            (net (rename B_12_ "B<12>")
+              (joined
+                (portRef (member B 3))
+                (portRef I (instanceRef B_12_IBUF_renamed_37))
+              )
+            )
+            (net (rename B_11_ "B<11>")
+              (joined
+                (portRef (member B 4))
+                (portRef I (instanceRef B_11_IBUF_renamed_38))
+              )
+            )
+            (net (rename B_10_ "B<10>")
+              (joined
+                (portRef (member B 5))
+                (portRef I (instanceRef B_10_IBUF_renamed_39))
+              )
+            )
+            (net (rename B_9_ "B<9>")
+              (joined
+                (portRef (member B 6))
+                (portRef I (instanceRef B_9_IBUF_renamed_40))
+              )
+            )
+            (net (rename B_8_ "B<8>")
+              (joined
+                (portRef (member B 7))
+                (portRef I (instanceRef B_8_IBUF_renamed_41))
+              )
+            )
+            (net (rename B_7_ "B<7>")
+              (joined
+                (portRef (member B 8))
+                (portRef I (instanceRef B_7_IBUF_renamed_42))
+              )
+            )
+            (net (rename B_6_ "B<6>")
+              (joined
+                (portRef (member B 9))
+                (portRef I (instanceRef B_6_IBUF_renamed_43))
+              )
+            )
+            (net (rename B_5_ "B<5>")
+              (joined
+                (portRef (member B 10))
+                (portRef I (instanceRef B_5_IBUF_renamed_44))
+              )
+            )
+            (net (rename B_4_ "B<4>")
+              (joined
+                (portRef (member B 11))
+                (portRef I (instanceRef B_4_IBUF_renamed_45))
+              )
+            )
+            (net (rename B_3_ "B<3>")
+              (joined
+                (portRef (member B 12))
+                (portRef I (instanceRef B_3_IBUF_renamed_46))
+              )
+            )
+            (net (rename B_2_ "B<2>")
+              (joined
+                (portRef (member B 13))
+                (portRef I (instanceRef B_2_IBUF_renamed_47))
+              )
+            )
+            (net (rename B_1_ "B<1>")
+              (joined
+                (portRef (member B 14))
+                (portRef I (instanceRef B_1_IBUF_renamed_48))
+              )
+            )
+            (net (rename B_0_ "B<0>")
+              (joined
+                (portRef (member B 15))
+                (portRef I (instanceRef B_0_IBUF_renamed_49))
+              )
+            )
+            (net rst
+              (joined
+                (portRef rst)
+                (portRef I (instanceRef rst_IBUF_renamed_50))
+              )
+            )
+            (net cin
+              (joined
+                (portRef cin)
+                (portRef I (instanceRef cin_IBUF_renamed_51))
+              )
+            )
+            (net (rename S_15_ "S<15>")
+              (joined
+                (portRef (member S 0))
+                (portRef O (instanceRef S_15_OBUF))
+              )
+            )
+            (net (rename S_14_ "S<14>")
+              (joined
+                (portRef (member S 1))
+                (portRef O (instanceRef S_14_OBUF))
+              )
+            )
+            (net (rename S_13_ "S<13>")
+              (joined
+                (portRef (member S 2))
+                (portRef O (instanceRef S_13_OBUF))
+              )
+            )
+            (net (rename S_12_ "S<12>")
+              (joined
+                (portRef (member S 3))
+                (portRef O (instanceRef S_12_OBUF))
+              )
+            )
+            (net (rename S_11_ "S<11>")
+              (joined
+                (portRef (member S 4))
+                (portRef O (instanceRef S_11_OBUF))
+              )
+            )
+            (net (rename S_10_ "S<10>")
+              (joined
+                (portRef (member S 5))
+                (portRef O (instanceRef S_10_OBUF))
+              )
+            )
+            (net (rename S_9_ "S<9>")
+              (joined
+                (portRef (member S 6))
+                (portRef O (instanceRef S_9_OBUF))
+              )
+            )
+            (net (rename S_8_ "S<8>")
+              (joined
+                (portRef (member S 7))
+                (portRef O (instanceRef S_8_OBUF))
+              )
+            )
+            (net (rename S_7_ "S<7>")
+              (joined
+                (portRef (member S 8))
+                (portRef O (instanceRef S_7_OBUF))
+              )
+            )
+            (net (rename S_6_ "S<6>")
+              (joined
+                (portRef (member S 9))
+                (portRef O (instanceRef S_6_OBUF))
+              )
+            )
+            (net (rename S_5_ "S<5>")
+              (joined
+                (portRef (member S 10))
+                (portRef O (instanceRef S_5_OBUF))
+              )
+            )
+            (net (rename S_4_ "S<4>")
+              (joined
+                (portRef (member S 11))
+                (portRef O (instanceRef S_4_OBUF))
+              )
+            )
+            (net (rename S_3_ "S<3>")
+              (joined
+                (portRef (member S 12))
+                (portRef O (instanceRef S_3_OBUF))
+              )
+            )
+            (net (rename S_2_ "S<2>")
+              (joined
+                (portRef (member S 13))
+                (portRef O (instanceRef S_2_OBUF))
+              )
+            )
+            (net (rename S_1_ "S<1>")
+              (joined
+                (portRef (member S 14))
+                (portRef O (instanceRef S_1_OBUF))
+              )
+            )
+            (net (rename S_0_ "S<0>")
+              (joined
+                (portRef (member S 15))
+                (portRef O (instanceRef S_0_OBUF))
+              )
+            )
+            (net cout
+              (joined
+                (portRef cout)
+                (portRef O (instanceRef cout_OBUF_renamed_52))
+              )
+            )
+          )
+      )
+    )
+  )
+
+  (design wrapper_RCA_16
+    (cellRef wrapper_RCA_16
+      (libraryRef wrapper_RCA_16_lib)
+    )
+    (property PART (string "xc7a100t-1-csg324") (owner "Xilinx"))
+  )
+)
+

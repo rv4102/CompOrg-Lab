@@ -1,0 +1,4 @@
+verilog work "CLA_4.v"
+verilog work "CLA_16.v"
+verilog work "CLA_16_TestBench.v"
+verilog work "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

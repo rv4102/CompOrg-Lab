@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Wed Aug 31 16:25:42 2022
+# Process ID: 10564
+# Log file: C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/planAhead_run_1/planAhead.log
+# Journal file: C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/pa.fromNcd.tcl

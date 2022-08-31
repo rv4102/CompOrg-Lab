@@ -1,0 +1,53 @@
+xst -intstyle ise -ifn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/wrapper_RCA_16.xst" -ofn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/wrapper_RCA_16.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7a100t-csg324-1 wrapper_RCA_16.ngc wrapper_RCA_16.ngd  
+map -intstyle ise -p xc7a100t-csg324-1 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o wrapper_RCA_16_map.ncd wrapper_RCA_16.ngd wrapper_RCA_16.pcf 
+par -w -intstyle ise -ol high -mt off wrapper_RCA_16_map.ncd wrapper_RCA_16.ncd wrapper_RCA_16.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml wrapper_RCA_16.twx wrapper_RCA_16.ncd -o wrapper_RCA_16.twr wrapper_RCA_16.pcf 
+xst -intstyle ise -ifn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/wrapper_RCA_16.xst" -ofn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/wrapper_RCA_16.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc timing_rca16.ucf -p xc7a100t-csg324-1 wrapper_RCA_16.ngc wrapper_RCA_16.ngd  
+map -intstyle ise -p xc7a100t-csg324-1 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o wrapper_RCA_16_map.ncd wrapper_RCA_16.ngd wrapper_RCA_16.pcf 
+par -w -intstyle ise -ol high -mt off wrapper_RCA_16_map.ncd wrapper_RCA_16.ncd wrapper_RCA_16.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml wrapper_RCA_16.twx wrapper_RCA_16.ncd -o wrapper_RCA_16.twr wrapper_RCA_16.pcf -ucf timing_rca16.ucf 
+xst -intstyle ise -ifn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/wrapper_RCA_16.xst" -ofn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/wrapper_RCA_16.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc timing_rca16.ucf -p xc7a100t-csg324-1 wrapper_RCA_16.ngc wrapper_RCA_16.ngd  
+map -intstyle ise -p xc7a100t-csg324-1 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o wrapper_RCA_16_map.ncd wrapper_RCA_16.ngd wrapper_RCA_16.pcf 
+par -w -intstyle ise -ol high -mt off wrapper_RCA_16_map.ncd wrapper_RCA_16.ncd wrapper_RCA_16.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml wrapper_RCA_16.twx wrapper_RCA_16.ncd -o wrapper_RCA_16.twr wrapper_RCA_16.pcf -ucf timing_rca16.ucf 
+xst -intstyle ise -ifn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/wrapper_RCA_16.xst" -ofn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/wrapper_RCA_16.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7a100t-csg324-1 wrapper_RCA_16.ngc wrapper_RCA_16.ngd  
+map -intstyle ise -p xc7a100t-csg324-1 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o wrapper_RCA_16_map.ncd wrapper_RCA_16.ngd wrapper_RCA_16.pcf 
+par -w -intstyle ise -ol high -mt off wrapper_RCA_16_map.ncd wrapper_RCA_16.ncd wrapper_RCA_16.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml wrapper_RCA_16.twx wrapper_RCA_16.ncd -o wrapper_RCA_16.twr wrapper_RCA_16.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7a100t-csg324-1 wrapper_RCA_16.ngc wrapper_RCA_16.ngd  
+map -intstyle ise -p xc7a100t-csg324-1 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o wrapper_RCA_16_map.ncd wrapper_RCA_16.ngd wrapper_RCA_16.pcf 
+par -w -intstyle ise -ol high -mt off wrapper_RCA_16_map.ncd wrapper_RCA_16.ncd wrapper_RCA_16.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml wrapper_RCA_16.twx wrapper_RCA_16.ncd -o wrapper_RCA_16.twr wrapper_RCA_16.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7a100t-csg324-1 wrapper_RCA_16.ngc wrapper_RCA_16.ngd  
+map -intstyle ise -p xc7a100t-csg324-1 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o wrapper_RCA_16_map.ncd wrapper_RCA_16.ngd wrapper_RCA_16.pcf 
+par -w -intstyle ise -ol high -mt off wrapper_RCA_16_map.ncd wrapper_RCA_16.ncd wrapper_RCA_16.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml wrapper_RCA_16.twx wrapper_RCA_16.ncd -o wrapper_RCA_16.twr wrapper_RCA_16.pcf 
+map -intstyle ise -p xc7a100t-csg324-1 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o wrapper_RCA_16_map.ncd wrapper_RCA_16.ngd wrapper_RCA_16.pcf 
+par -w -intstyle ise -ol high -mt off wrapper_RCA_16_map.ncd wrapper_RCA_16.ncd wrapper_RCA_16.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml wrapper_RCA_16.twx wrapper_RCA_16.ncd -o wrapper_RCA_16.twr wrapper_RCA_16.pcf -ucf timing.ucf 
+xst -intstyle ise -ifn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/wrapper_RCA_16.xst" -ofn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/wrapper_RCA_16.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc timing.ucf -p xc7a100t-csg324-1 wrapper_RCA_16.ngc wrapper_RCA_16.ngd  
+map -intstyle ise -p xc7a100t-csg324-1 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o wrapper_RCA_16_map.ncd wrapper_RCA_16.ngd wrapper_RCA_16.pcf 
+par -w -intstyle ise -ol high -mt off wrapper_RCA_16_map.ncd wrapper_RCA_16.ncd wrapper_RCA_16.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml wrapper_RCA_16.twx wrapper_RCA_16.ncd -o wrapper_RCA_16.twr wrapper_RCA_16.pcf -ucf timing.ucf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc timing.ucf -p xc7a100t-csg324-1 wrapper_RCA_16.ngc wrapper_RCA_16.ngd  
+map -intstyle ise -p xc7a100t-csg324-1 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o wrapper_RCA_16_map.ncd wrapper_RCA_16.ngd wrapper_RCA_16.pcf 
+par -w -intstyle ise -ol high -mt off wrapper_RCA_16_map.ncd wrapper_RCA_16.ncd wrapper_RCA_16.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml wrapper_RCA_16.twx wrapper_RCA_16.ncd -o wrapper_RCA_16.twr wrapper_RCA_16.pcf -ucf timing.ucf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc timing.ucf -p xc7a100t-csg324-1 wrapper_RCA_16.ngc wrapper_RCA_16.ngd  
+map -intstyle ise -p xc7a100t-csg324-1 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o wrapper_RCA_16_map.ncd wrapper_RCA_16.ngd wrapper_RCA_16.pcf 
+par -w -intstyle ise -ol high -mt off wrapper_RCA_16_map.ncd wrapper_RCA_16.ncd wrapper_RCA_16.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml wrapper_RCA_16.twx wrapper_RCA_16.ncd -o wrapper_RCA_16.twr wrapper_RCA_16.pcf -ucf timing.ucf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc timing.ucf -p xc7a100t-csg324-1 wrapper_RCA_16.ngc wrapper_RCA_16.ngd  
+map -intstyle ise -p xc7a100t-csg324-1 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o wrapper_RCA_16_map.ncd wrapper_RCA_16.ngd wrapper_RCA_16.pcf 
+par -w -intstyle ise -ol high -mt off wrapper_RCA_16_map.ncd wrapper_RCA_16.ncd wrapper_RCA_16.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml wrapper_RCA_16.twx wrapper_RCA_16.ncd -o wrapper_RCA_16.twr wrapper_RCA_16.pcf -ucf timing.ucf 
+xst -intstyle ise -ifn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/wrapper_RCA_16.xst" -ofn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/wrapper_RCA_16.syr" 
+xst -intstyle ise -ifn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/wrapper_RCA_16.xst" -ofn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/wrapper_RCA_16.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc timing.ucf -p xc7a100t-csg324-1 wrapper_RCA_16.ngc wrapper_RCA_16.ngd  
+map -intstyle ise -p xc7a100t-csg324-1 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o wrapper_RCA_16_map.ncd wrapper_RCA_16.ngd wrapper_RCA_16.pcf 
+par -w -intstyle ise -ol high -mt off wrapper_RCA_16_map.ncd wrapper_RCA_16.ncd wrapper_RCA_16.pcf 

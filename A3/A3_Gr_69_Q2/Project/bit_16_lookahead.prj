@@ -1,0 +1,3 @@
+verilog work "LCA.v"
+verilog work "CLA_4_augmented.v"
+verilog work "CLA_16_LCA.v"

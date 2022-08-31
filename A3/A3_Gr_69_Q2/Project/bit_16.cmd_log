@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/bit_16.xst" -ofn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/bit_16.syr" 
+xst -intstyle ise -ifn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/bit_16.xst" -ofn "C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/bit_16.syr" 

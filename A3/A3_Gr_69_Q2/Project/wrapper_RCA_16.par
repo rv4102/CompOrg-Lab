@@ -1,0 +1,17 @@
+Release 14.7 par P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+HWLAB69::  Wed Aug 31 16:28:23 2022
+
+par -w -intstyle ise -ol high -mt off wrapper_RCA_16_map.ncd wrapper_RCA_16.ncd
+wrapper_RCA_16.pcf 
+
+
+Constraints file: wrapper_RCA_16.pcf.
+ERROR:Pds:77 - Can not create file wrapper_RCA_16.ncd
+ERROR: Pds exception in PahDesignLoader:
+EXCEPTION:Pds:Pds_PahDesignLoader.c:163:1.4 - The file 'wrapper_RCA_16.ncd' has invalid file access modes for the
+   attempted operation.
+FATAL_ERROR:Par:baspwpar.c:3938:1.467 - Par has discovered an exceptional condition while trying to load the design
+   wrapper_RCA_16_map.ncd - from which it cannot recover   For technical support on this issue, please visit
+   http://www.xilinx.com/support.
