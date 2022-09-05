@@ -65,12 +65,12 @@ main:
     jal     populateMatrix
     move    $a1, $v0        # save the returned address of A
 
-    # li      $v0, 4
-    # la      $a0, print_A
-    # syscall
+    li      $v0, 4
+    la      $a0, print_A
+    syscall
 
-    # move    $a0, $s0
-    # jal     printMatrix
+    move    $a0, $s0
+    jal     printMatrix
 
     jal     findDeterminant
     move    $s4, $v0        # save returned determinant
