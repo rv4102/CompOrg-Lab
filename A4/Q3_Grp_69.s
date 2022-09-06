@@ -17,6 +17,8 @@ newline:
     .asciiz "\n"
 prompt_space:
     .asciiz " "
+prompt_sorted:
+    .asciiz "Sorted Array: "
 prompt_found:
     .asciiz " is FOUND in the array at index "
 prompt_not_found:
@@ -35,7 +37,33 @@ main:
 
     li $v0, 5
     syscall
-    move $s0, $v0               # $s0 = n
+    move $s3, $v0               # $s0 = n
+    
+    ########################################################################
+    li $a1, 0
+    li $a2, 9
+    la $a0, array
+    
+    li $s0, 0
+    li $s1, 9
+    li $s2, 0
+
+    jal recursive_sort
+
+    li $v0, 4
+    la $a0, prompt_sorted
+    syscall
+
+    li $v0, 4
+    la $a0, prompt_space
+    syscall
+
+    la $a0, array
+    jal print_array
+
+    move $s0, $s3
+
+##################################################################################
 
     li $a0, 0                   # start = 0
     li $a1, 9                   # end = 9
@@ -83,6 +111,165 @@ read_loop:
     slti $t1, $t0, 40           # if(i < 10)
     beq $t1, 1, read_loop       # go to read_loop
     jr $ra                      # else return
+
+######################################################################################
+
+recursive_sort:
+
+    move $t0, $ra
+    move $t1, $a0
+    jal initStack   
+    move $a0, $t0
+    jal pushToStack         
+    move $a0, $t1
+    jal pushToStack         
+    move $a0, $a1
+    jal pushToStack         
+    move $a0, $a2
+    jal pushToStack         
+    
+
+    move $a0, $s0
+    jal pushToStack     
+    
+    move $a0, $s1           
+    jal pushToStack
+
+    move $a0, $s2           
+    jal pushToStack
+
+    move $s0, $a1         
+    move $s1, $a2         
+    move $s2, $a1         
+
+    slt $t4, $s0, $s1
+    beq $t4, 1, continue
+
+end_funct:
+ 
+    lw $s2, 0($sp)
+    lw $s1, 4($sp)
+    lw $s0, 8($sp)
+    lw $a2, 12($sp)
+    lw $a1, 16($sp)
+    lw $a0, 20($sp)
+    lw $ra, 24($sp)
+
+    lw $fp, 0($fp)
+    addi $sp , $sp, 32
+    
+    jr $ra 
+
+continue:
+
+    bgt $s0, $s1, end_funct
+
+    while1:
+        move $t0, $s0
+        sll $t0, $t0, 2
+        la  $t2, array
+        add $t3, $t2, $t0
+        lw  $t1, 0($t3)
+        move $t0, $s2
+        sll $t0, $t0, 2
+        la $t2, array
+        add $t2, $t2, $t0
+        lw $t3, 0($t2)
+
+        lw $t4, 12($sp)
+        bgt $t1, $t3, while2
+        bge $s0, $a2, while2
+        addi $s0, $s0, 1
+        j while1
+    
+    while2:
+        
+        move $t0, $s1
+        sll $t0, $t0, 2
+        la $t2, array
+        add $t3, $t2, $t0
+        lw $t1, 0($t3)
+
+        move $t0, $s2
+        sll $t0, $t0, 2
+        la $t2, array
+        add $t2, $t2, $t0
+        lw $t3, 0($t2)
+        
+        lw $t4, 16($sp)
+        blt $t1, $t3, cond_if
+        ble $s1, $t4, cond_if
+        addi $s1, $s1, -1
+        j while2
+    
+    cond_if:
+           
+        blt $s0, $s1, else
+      
+        sll $t2, $s1, 2
+        sll $t3, $s2, 2
+        lw $t0 , array($t3)
+        lw $t1, array($t2)
+        sw $t0, array($t2)
+        sw $t1, array($t3)
+          
+        move $t0, $s1
+        addi $t0, $t0, -1
+        move $a2, $t0
+
+        lw $a0, 20($sp)
+        lw $a1, 16($sp)
+        
+        jal recursive_sort
+
+        lw $a2, 12($sp)
+        
+        move $t0, $s1
+        addi $t0, $t0, 1
+        move $a1, $t0
+        lw $a0, 20($sp)
+        
+        jal recursive_sort
+        
+        b end_funct
+        
+    else:
+        
+        sll $t2,$s0,2
+        sll $t3,$s1,2
+        lw $t0 , array($t2)
+        lw $t1, array($t3)
+        sw $t0, array($t3)
+        sw $t1, array($t2)
+        b continue
+
+print_array:
+    li $t0, 0
+    while_print:
+        beq $t0, 10, end
+        sll $t1, $t0, 2
+        li $v0, 1
+        lw $a0, array($t1)
+        syscall
+
+        li $v0, 4
+        la $a0, prompt_space
+        syscall
+
+        addi $t0, $t0, 1
+
+        j while_print
+
+end:
+    li $v0, 4
+    la $a0, newline
+    syscall
+
+    jr $ra
+
+############################################################################################
+
+
 
 # function to recursively search for a value in an array using ternary search
 recursive_search:
