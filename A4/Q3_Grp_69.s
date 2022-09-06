@@ -100,6 +100,7 @@ recursive_search:
     move $a0, $t0
     jal pushToStack         # push $ra to stack at -20($fp)
 
+    j check_while
 while_recursive_search:
     lw $a0, -4($fp)
     lw $a1, -8($fp)
@@ -152,6 +153,7 @@ recursive_case_3:
     jal recursive_search
     j exit
 
+check_while:
     lw $t0, -4($fp)
     lw $t1, -8($fp)
     ble $t0, $t1, while_recursive_search
@@ -216,6 +218,7 @@ not_found:
 
     li $v0, 4
     la $a0, prompt_not_found
+    syscall
  
     j exit_prog
 
