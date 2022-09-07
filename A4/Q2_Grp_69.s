@@ -5,10 +5,13 @@
 # Rushil Venkateswar (20CS30045)
 # Jatin Gupta (20CS10087)
 
+# .data to store the display messages in variables
     .data
+
+#array of 10 integers
 array: .space 40
 
-
+#display messages
 prompt_enter:
     .asciiz "Enter an integer: "
 newline: 
@@ -17,211 +20,228 @@ prompt_space:
     .asciiz " "
 prompt_sorted:
     .asciiz "Sorted Array: "
-debug:
-    .asciiz "Jatin is a bitch"
-debug2:
-    .asciiz "Jatin is a bitch no.2"
-debug3:
-    .asciiz "Jatin is a bitch no.3"
-debug4:
-    .asciiz "Jatin is a bitch no.4"
 
+#.text for logic implementation
     .text
+.globl main
+
+#main function starts
 main:
-    jal read_input
-    
-    li $a1, 0
-    li $a2, 9
-    la $a0, array
-    
-    li $s0, 0
-    li $s1, 9
-    li $s2, 0
 
-    jal recursive_sort
+    # calling function to read array elements
+    jal     read_input
+    
+    # setting the first argument as address of array, second argument as 0 (left index), third argument as 9(right index)
+    li      $a1, 0
+    li      $a2, 9
+    la      $a0, array
 
-    li $v0, 4
-    la $a0, prompt_sorted
+    # setting initial values of l, r, p for intitial function call
+    li      $s0, 0 
+    li      $s1, 9
+    li      $s2, 0
+
+    # function call to sort the array
+    jal     recursive_sort
+
+    # after sorting the array, calling the function to print the sorted array
+    li      $v0, 4
+    la      $a0, prompt_sorted
     syscall
 
-    li $v0, 4
-    la $a0, prompt_space
+    li      $v0, 4
+    la      $a0, prompt_space
     syscall
 
-    la $a0, array
-    b print_array
+    la      $a0, array
+    jal     print_array
 
+    # terminating the program
+    li      $v0, 10
+    syscall
+
+# function to read the input
 read_input:
-    li $t0, 0
-    b read_loop
+    li      $t0, 0                  # i = 0
+    b       read_loop
 
+# loop to read the integers
 read_loop:
-    li $v0,  4
-    la $a0, prompt_enter
+
+    li      $v0,  4                       # displaying message to the user to enter an integer
+    la      $a0, prompt_enter
     syscall
-    li $v0, 5
+
+    li      $v0, 5                        # reading the integer
     syscall
-    sw $v0, array($t0)
-    addi $t0, $t0, 4
-    slti $t1, $t0, 40
-    beq $t1, 1, read_loop
-    jr $ra
 
+    sw      $v0, array($t0)               # storing the integer in array
+    addi    $t0, $t0, 4                   # i++   
+    slti    $t1, $t0, 40                  # if (i==10) break
+    beq     $t1, 1, read_loop
+    jr      $ra                           # return from the read_input function
 
-
+# function to sort the array
 recursive_sort:
-
-    move $t0, $ra
-    move $t1, $a0
-    jal initStack   
-    move $a0, $t0
-    jal pushToStack         
-    move $a0, $t1
-    jal pushToStack         
-    move $a0, $a1
-    jal pushToStack         
-    move $a0, $a2
-    jal pushToStack         
+    # arguments: $a0 => array, $a1 => left, $a2 => right
+    # storing the required register values
+    move    $t0, $ra
+    move    $t1, $a0
+    jal     initStack                   # intitializing the stack frame
+    move    $a0, $t0           
+    jal     pushToStack                 # pushing $ra to stack 
+    move    $a0, $t1
+    jal     pushToStack                 # pushing $a0 (array) to stack
+    move    $a0, $a1
+    jal     pushToStack                 # pushing $a1 (left) to stack
+    move    $a0, $a2
+    jal     pushToStack                 # pushing $a2 (right) to stack
     
-
-    move $a0, $s0
-    jal pushToStack     
+    move    $a0, $s0                   # pushing callee saved $s0 (l) to stack
+    jal     pushToStack     
     
-    move $a0, $s1           
-    jal pushToStack
+    move    $a0, $s1                   # pushing $s1 (r) to stack
+    jal     pushToStack
 
-    move $a0, $s2           
-    jal pushToStack
+    move    $a0, $s2                   # pushing $s2 (p) to stack 
+    jal     pushToStack
 
-    move $s0, $a1         
-    move $s1, $a2         
-    move $s2, $a1         
+    # $s0 represents l
+    # $s1 represents r
+    # $s2 represents p
+    move    $s0, $a1                   # l = left               
+    move    $s1, $a2                   # r = right
+    move    $s2, $a1                   # p = left
 
-    slt $t4, $s0, $s1
-    beq $t4, 1, continue
+    slt     $t4, $s0, $s1               # if(l<r) then continue operations, else return
+    beq     $t4, 1, continue
 
 end_funct:
  
-    lw $s2, 0($sp)
-    lw $s1, 4($sp)
-    lw $s0, 8($sp)
-    lw $a2, 12($sp)
-    lw $a1, 16($sp)
-    lw $a0, 20($sp)
-    lw $ra, 24($sp)
+    #restoring the arguments and callee saved register values
 
-    lw $fp, 0($fp)
-    addi $sp , $sp, 32
+    lw      $s2, 0($sp)                 # restoring $s2 (p)
+    lw      $s1, 4($sp)                 # restoring $s1 (r)
+    lw      $s0, 8($sp)                 # restoring $s0 (l)
+    lw      $a2, 12($sp)                # restoring $a2 (right)
+    lw      $a1, 16($sp)                # restoring $a1 (left)
+    lw      $a0, 20($sp)                # restoring $a0 (array)
+    lw      $ra, 24($sp)                # restoring $ra (return address)
+
+    lw      $fp, 0($fp)                 # restoring the prev. frame pointer
+    addi    $sp , $sp, 32               # destroying the stack frame
     
-    jr $ra 
+    jr      $ra                         # return 
 
 continue:
 
-    bgt $s0, $s1, end_funct
+    bge     $s0, $s1, end_funct        # if(l>r) return 
 
-    while1:
-        move $t0, $s0
-        sll $t0, $t0, 2
-        la  $t2, array
-        add $t3, $t2, $t0
-        lw  $t1, 0($t3)
-        move $t0, $s2
-        sll $t0, $t0, 2
-        la $t2, array
-        add $t2, $t2, $t0
-        lw $t3, 0($t2)
+    # first loop
+    while1:                        
+        move    $t0, $s0              
+        sll     $t0, $t0, 2
+        la      $t2, array
+        add     $t3, $t2, $t0
+        lw      $t1, 0($t3)            # $t1 stores A[l]
+        move    $t0, $s2
+        sll     $t0, $t0, 2
+        la      $t2, array
+        add     $t2, $t2, $t0
+        lw      $t3, 0($t2)             # $t3 stores A[p]
 
-        lw $t4, 12($sp)
-        bgt $t1, $t3, while2
-        bge $s0, $a2, while2
-        addi $s0, $s0, 1
-        j while1
+        lw      $t4, 12($sp)            # $t4 stores right
+        bgt     $t1, $t3, while2        # if (A[l] > A[p]) end loop
+        bge     $s0, $a2, while2        # if (l >= right) end loop
+        addi    $s0, $s0, 1             # l++
+        j       while1                  # continue loop
     
+    #second loop
     while2:
-        
-        move $t0, $s1
-        sll $t0, $t0, 2
-        la $t2, array
-        add $t3, $t2, $t0
-        lw $t1, 0($t3)
+        move    $t0, $s1
+        sll     $t0, $t0, 2
+        la      $t2, array
+        add     $t3, $t2, $t0
+        lw      $t1, 0($t3)           # $t1 stores A[r]
 
-        move $t0, $s2
-        sll $t0, $t0, 2
-        la $t2, array
-        add $t2, $t2, $t0
-        lw $t3, 0($t2)
+        move    $t0, $s2
+        sll     $t0, $t0, 2
+        la      $t2, array
+        add     $t2, $t2, $t0
+        lw      $t3, 0($t2)           # $t3 stores A[p]
         
-        lw $t4, 16($sp)
-        blt $t1, $t3, cond_if
-        ble $s1, $t4, cond_if
-        addi $s1, $s1, -1
-        j while2
+        lw      $t4, 16($sp)          # $t4 stores left
+        blt     $t1, $t3, cond_if     # if(A[r] < A[p]) end loop
+        ble     $s1, $t4, cond_if     # if(r<left) end loop
+        addi    $s1, $s1, -1          # j--
+        j       while2                # continue loop
     
+    # if (l>=r), then 
     cond_if:
            
-        blt $s0, $s1, else
-      
-        sll $t2, $s1, 2
-        sll $t3, $s2, 2
-        lw $t0 , array($t3)
-        lw $t1, array($t2)
-        sw $t0, array($t2)
-        sw $t1, array($t3)
+        blt     $s0, $s1, else        # checking for the condition  
+                                      # if (l>=r) continue, else jump to else branch
+        sll     $t2, $s1, 2
+        sll     $t3, $s2, 2
+        lw      $t0 , array($t3)      # swapping A[p], A[r]
+        lw      $t1, array($t2)
+        sw      $t0, array($t2)
+        sw      $t1, array($t3)
           
-        move $t0, $s1
-        addi $t0, $t0, -1
-        move $a2, $t0
+        move    $t0, $s1             
+        addi    $t0, $t0, -1
+        move    $a2, $t0              # storing (r-1) in $a2 as the third argument
 
-        lw $a0, 20($sp)
-        lw $a1, 16($sp)
+        lw      $a0, 20($sp)          # setting first argument as (A)
+        lw      $a1, 16($sp)          # setting second argument as left
         
-        jal recursive_sort
+        jal     recursive_sort        # recursively calling the function, recursive_sort(A, left, r-1)
 
-        lw $a2, 12($sp)
+        lw      $a2, 12($sp)          # setting third argument as right
         
-        move $t0, $s1
-        addi $t0, $t0, 1
-        move $a1, $t0
-        lw $a0, 20($sp)
+        move    $t0, $s1
+        addi    $t0, $t0, 1
+        move    $a1, $t0              # setting second argument as r+1
+        lw      $a0, 20($sp)          # setting first argument as (A)
         
-        jal recursive_sort
+        jal     recursive_sort        # recursively calling the sort function, recursive_sort(array, r+1, right)
         
-        b end_funct
+        b       end_funct             # return
         
     else:
-        
-        sll $t2,$s0,2
-        sll $t3,$s1,2
-        lw $t0 , array($t2)
-        lw $t1, array($t3)
-        sw $t0, array($t3)
-        sw $t1, array($t2)
-        b continue
+        # if(l<r) 
+        sll     $t2,$s0,2
+        sll     $t3,$s1,2
+        lw      $t0 , array($t2)       # swapping A[l], A[r]
+        lw      $t1, array($t3)
+        sw      $t0, array($t3)
+        sw      $t1, array($t2)
+        b       continue               # continue the loop
 
+# function to print the array
 print_array:
-    li $t0, 0
-    while_print:
-        beq $t0, 10, end
-        sll $t1, $t0, 2
-        li $v0, 1
-        lw $a0, array($t1)
-        syscall
+    li          $t0, 0               # i = 0
+    while_print:                     # loop to print the array elements
+        beq     $t0, 10, end         # if(i==10) break
+        sll     $t1, $t0, 2
+        li      $v0, 1
+        lw      $a0, array($t1)      # $a0  = A[i]
+        syscall                      # printing A[i]
 
-        li $v0, 4
-        la $a0, prompt_space
-        syscall
+        li      $v0, 4
+        la      $a0, prompt_space
+        syscall                       # printing space between elements
 
-        addi $t0, $t0, 1
+        addi    $t0, $t0, 1           # i++
 
-        j while_print
+        j       while_print           # continue loop
 
 end:
-    li $v0, 4
-    la $a0, newline
-    syscall
+    li      $v0, 4                   
+    la      $a0, newline
+    syscall                          # printing new line
 
-    li $v0, 10
-    syscall
+    jr      $ra                      # return
 
 initStack:
     # The stack will look like this after initStack is called:
