@@ -1,0 +1,23 @@
+`timescale 1ns / 1ps
+
+//////////////////////////////////////////////////////////////////////////////////
+// Assignment 5
+// Question 1
+// Group 69
+// Team Member 1: Rushil Venkateswar (20CS30045)
+// Team Member 2: Jatin Gupta (20CS10087)
+// SEM 5 (Autumn 2022-23)
+//////////////////////////////////////////////////////////////////////////////////
+
+module binary_counter(input wire clock, input wire reset, output wire[3:0] count);
+    // both clock and reset added to sensitivity list to perform asynchronous reset
+    always @(posedge clock, posedge reset)
+    begin
+        if(reset == 1)
+            count <= 0;     // set count to 0 if reset is pressed
+        else if(count == 4'b1111)
+            count <= 0;     // set count to 0 if count reaches 1111
+        else
+            count <= count + 1;
+    end
+endmodule
