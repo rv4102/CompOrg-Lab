@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\ani30\Downloads\bc_structural\bc_behavioral\wrapper_bin_cnt_bhvl.ncd
+OUTFILE=C:\Users\ani30\Downloads\bc_structural\bc_behavioral\wrapper_bin_cnt_bhvl.bit
+FAMILY=Artix7
+PART=xc7a100t-1csg324
+WORKINGDIR=C:\Users\ani30\Downloads\bc_structural\bc_behavioral
+LICENSE=WebPack
+USER_INFO=212527298_0_0_251

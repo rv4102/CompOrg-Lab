@@ -1,0 +1,6 @@
+verilog work "dff.v"
+verilog work "add_by_1.v"
+verilog work "../bc_structural/clk_divider.v"
+verilog work "bin_cnt_strc.v"
+verilog work "bin_cnt_strc_tb.v"
+verilog work "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

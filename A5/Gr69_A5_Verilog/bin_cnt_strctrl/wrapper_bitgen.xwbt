@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\Student\bin_cnt_strctrl\wrapper.ncd
+OUTFILE=C:\Users\Student\bin_cnt_strctrl\wrapper.bit
+FAMILY=Automotive Artix7
+PART=xa7a100t-2icsg324
+WORKINGDIR=C:\Users\Student\bin_cnt_strctrl
+LICENSE=WebPack
+USER_INFO=__0_0_0

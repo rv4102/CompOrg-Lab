@@ -1,0 +1,28 @@
+Command line:
+   bin_cnt_strc_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  49859
+
+Wed Sep 14 17:15:05 2022
+
+
+ Elaboration Time: 0.0625 sec
+
+ Current Memory Usage: 5153.86 Meg
+
+ Total Signals          : 33
+ Total Nets             : 28
+ Total Signal Drivers   : 15
+ Total Blocks           : 7
+ Total Primitive Blocks : 6
+ Total Processes        : 20
+ Total Traceable Variables  : 22
+ Total Scalar Nets and Variables : 112
+
+ Total Simulation Time: 0.0625 sec
+
+ Current Memory Usage: 5153.86 Meg
+
+Wed Sep 14 17:15:14 2022
+

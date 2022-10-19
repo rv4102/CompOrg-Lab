@@ -1,0 +1,4 @@
+verilog work "dff.v"
+verilog work "add_by_1.v"
+verilog work "../bc_structural/clk_divider.v"
+verilog work "bin_cnt_strc.v"

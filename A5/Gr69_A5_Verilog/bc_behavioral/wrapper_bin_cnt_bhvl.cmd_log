@@ -1,0 +1,21 @@
+xst -intstyle ise -ifn "C:/Users/ani30/Downloads/bc_structural/bc_behavioral/wrapper_bin_cnt_bhvl.xst" -ofn "C:/Users/ani30/Downloads/bc_structural/bc_behavioral/wrapper_bin_cnt_bhvl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7a100t-csg324-1 wrapper_bin_cnt_bhvl.ngc wrapper_bin_cnt_bhvl.ngd  
+map -intstyle ise -p xc7a100t-csg324-1 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o wrapper_bin_cnt_bhvl_map.ncd wrapper_bin_cnt_bhvl.ngd wrapper_bin_cnt_bhvl.pcf 
+par -w -intstyle ise -ol high -mt off wrapper_bin_cnt_bhvl_map.ncd wrapper_bin_cnt_bhvl.ncd wrapper_bin_cnt_bhvl.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml wrapper_bin_cnt_bhvl.twx wrapper_bin_cnt_bhvl.ncd -o wrapper_bin_cnt_bhvl.twr wrapper_bin_cnt_bhvl.pcf 
+bitgen -intstyle ise -f wrapper_bin_cnt_bhvl.ut wrapper_bin_cnt_bhvl.ncd 
+xst -intstyle ise -ifn "C:/Users/ani30/Downloads/bc_structural/bc_behavioral/wrapper_bin_cnt_bhvl.xst" -ofn "C:/Users/ani30/Downloads/bc_structural/bc_behavioral/wrapper_bin_cnt_bhvl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7a100t-csg324-1 wrapper_bin_cnt_bhvl.ngc wrapper_bin_cnt_bhvl.ngd  
+map -intstyle ise -p xc7a100t-csg324-1 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o wrapper_bin_cnt_bhvl_map.ncd wrapper_bin_cnt_bhvl.ngd wrapper_bin_cnt_bhvl.pcf 
+par -w -intstyle ise -ol high -mt off wrapper_bin_cnt_bhvl_map.ncd wrapper_bin_cnt_bhvl.ncd wrapper_bin_cnt_bhvl.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7a100t-csg324-1 wrapper_bin_cnt_bhvl.ngc wrapper_bin_cnt_bhvl.ngd  
+map -intstyle ise -p xc7a100t-csg324-1 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o wrapper_bin_cnt_bhvl_map.ncd wrapper_bin_cnt_bhvl.ngd wrapper_bin_cnt_bhvl.pcf 
+par -w -intstyle ise -ol high -mt off wrapper_bin_cnt_bhvl_map.ncd wrapper_bin_cnt_bhvl.ncd wrapper_bin_cnt_bhvl.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml wrapper_bin_cnt_bhvl.twx wrapper_bin_cnt_bhvl.ncd -o wrapper_bin_cnt_bhvl.twr wrapper_bin_cnt_bhvl.pcf 
+bitgen -intstyle ise -f wrapper_bin_cnt_bhvl.ut wrapper_bin_cnt_bhvl.ncd 
+xst -intstyle ise -ifn "C:/Users/ani30/Downloads/bc_structural/bc_behavioral/wrapper_bin_cnt_bhvl.xst" -ofn "C:/Users/ani30/Downloads/bc_structural/bc_behavioral/wrapper_bin_cnt_bhvl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pin.ucf -p xc7a100t-csg324-1 wrapper_bin_cnt_bhvl.ngc wrapper_bin_cnt_bhvl.ngd  
+map -intstyle ise -p xc7a100t-csg324-1 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o wrapper_bin_cnt_bhvl_map.ncd wrapper_bin_cnt_bhvl.ngd wrapper_bin_cnt_bhvl.pcf 
+par -w -intstyle ise -ol high -mt off wrapper_bin_cnt_bhvl_map.ncd wrapper_bin_cnt_bhvl.ncd wrapper_bin_cnt_bhvl.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml wrapper_bin_cnt_bhvl.twx wrapper_bin_cnt_bhvl.ncd -o wrapper_bin_cnt_bhvl.twr wrapper_bin_cnt_bhvl.pcf -ucf pin.ucf 
+bitgen -intstyle ise -f wrapper_bin_cnt_bhvl.ut wrapper_bin_cnt_bhvl.ncd 

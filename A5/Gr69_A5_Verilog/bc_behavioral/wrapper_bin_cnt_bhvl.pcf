@@ -1,0 +1,27 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Wed Sep 14 22:04:51 2022
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk" LOCATE = SITE "E3" LEVEL 1;
+COMP "counter<0>" LOCATE = SITE "H17" LEVEL 1;
+COMP "counter<1>" LOCATE = SITE "K15" LEVEL 1;
+COMP "rst" LOCATE = SITE "J15" LEVEL 1;
+COMP "counter<2>" LOCATE = SITE "J13" LEVEL 1;
+COMP "counter<3>" LOCATE = SITE "N14" LEVEL 1;
+TIMEGRP sys_clk_pin = BEL "counter_0" BEL "counter_1" BEL "counter_2" BEL
+        "counter_3" BEL "bc/clk1/out_clk" BEL "bc/clk1/cnt_0" BEL
+        "bc/clk1/cnt_1" BEL "bc/clk1/cnt_2" BEL "bc/clk1/cnt_3" BEL
+        "bc/clk1/cnt_4" BEL "bc/clk1/cnt_5" BEL "bc/clk1/cnt_6" BEL
+        "bc/clk1/cnt_7" BEL "bc/clk1/cnt_8" BEL "bc/clk1/cnt_9" BEL
+        "bc/clk1/cnt_10" BEL "bc/clk1/cnt_11" BEL "bc/clk1/cnt_12" BEL
+        "bc/clk1/cnt_13" BEL "bc/clk1/cnt_14" BEL "bc/clk1/cnt_15" BEL
+        "bc/clk1/cnt_16" BEL "bc/clk1/cnt_17" BEL "bc/clk1/cnt_18" BEL
+        "bc/clk1/cnt_19" BEL "bc/clk1/cnt_20" BEL "bc/clk1/cnt_21" BEL
+        "bc/clk1/cnt_22" BEL "bc/clk1/cnt_23" BEL "bc/clk1/cnt_24" BEL
+        "bc/clk1/cnt_25" BEL "bc/clk1/cnt_26" BEL "bc/clk1/cnt_27" BEL
+        "bc/clk1/cnt_28" BEL "bc/clk1/cnt_29" BEL "bc/clk1/cnt_30" BEL
+        "bc/clk1/cnt_31" BEL "clk_BUFGP/BUFG";
+TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
+SCHEMATIC END;
+

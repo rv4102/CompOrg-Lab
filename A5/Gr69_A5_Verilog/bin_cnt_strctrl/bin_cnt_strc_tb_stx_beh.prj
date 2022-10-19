@@ -1,0 +1,6 @@
+verilog isim_temp "dff.v"
+verilog isim_temp "add_by_1.v"
+verilog isim_temp "../bc_structural/clk_divider.v"
+verilog isim_temp "bin_cnt_strc.v"
+verilog isim_temp "bin_cnt_strc_tb.v"
+verilog isim_temp "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"
