@@ -36,18 +36,18 @@ module alu (input [31:0] A, input [31:0] B, input ALUipsel, input [4:0] ALUopsel
     always @(*) begin
         if(ALUopsel == 5'b00000) begin
             result = mux1_out;
-        end else if (ALUop == 5'b00001) begin
+        end else if (ALUopsel == 5'b00001) begin
             carry = carry_wire;
             result = sum;
-        end else if (ALUop == 5'b00101) begin
+        end else if (ALUopsel == 5'b00101) begin
             result = sum;
-        end else if (ALUop == 5'b10101) begin
+        end else if (ALUopsel == 5'b10101) begin
             result = adder1Out;
-        end else if (ALUop == 5'b00010) begin
+        end else if (ALUopsel == 5'b00010) begin
             result = and;
-        end else if (ALUop == 5'b00011) begin
+        end else if (ALUopsel == 5'b00011) begin
             result = xor;
-        end else if (ALUop[4:2] == 3'b010) begin
+        end else if (ALUopsel[4:2] == 3'b010) begin
             result = out_shift;
         end else if (ALUopsel == 5'b10111) begin
             result = diff;
