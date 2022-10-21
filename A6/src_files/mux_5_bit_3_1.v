@@ -1,8 +1,7 @@
 `timescale 1ns / 1ps
 
 //////////////////////////////////////////////////////////////////////////////////
-// Assignment 3
-// Question 2
+// Assignment 6
 // Group 69
 // Team Member 1: Rushil Venkateswar (20CS30045)
 // Team Member 2: Jatin Gupta (20CS10087)
