@@ -42,14 +42,14 @@ module alu (input [31:0] A, input [31:0] B, input ALUipsel, input [4:0] ALUopsel
         end else if (ALUopsel == 5'b00101) begin
             result = sum;
         end else if (ALUopsel == 5'b10101) begin
-            result = adder1Out;
+            result = sum;
         end else if (ALUopsel == 5'b00010) begin
             result = and;
         end else if (ALUopsel == 5'b00011) begin
             result = xor;
         end else if (ALUopsel[4:2] == 3'b010) begin
             result = out_shift;
-        end else if (ALUopsel == 5'b10111) begin
+        end else if (ALUopsel == 5'b00110) begin
             result = diff;
         end else begin 
             result = 32'b00000000000000000000000000000000;
