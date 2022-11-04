@@ -27,7 +27,7 @@ module jump_control(input [31:0] result, input carry, input [5:0] opcode, output
                     validJump = 0;
             end
             6'b001001: begin
-                if(!sign && zero)
+                if(!sign && zero) // check
                     validJump = 1;
                 else
                     validJump = 0;
