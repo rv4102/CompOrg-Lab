@@ -10,10 +10,9 @@
 
 module wrapper_bin_cnt_bhvl(input clk, input rst, output reg[3:0] counter);
 	wire [3:0] counter_net;
-	always @ (posedge clk)
-		 begin
-			  counter <= counter_net;
-		 end
+	always @ (posedge clk) begin
+		counter <= counter_net;
+	end
 
 	bin_cnt_bhvl bc(clk, rst, counter_net);
 endmodule

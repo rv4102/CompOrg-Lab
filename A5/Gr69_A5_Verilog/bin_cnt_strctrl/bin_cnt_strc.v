@@ -14,7 +14,6 @@ module bin_cnt_strc(input clk, input rst, output [3:0] counter);
 
 	clk_divider cd1(.clk(clk), .out_clk(clk_out));
 	
-	
 	dff d1(.rst(rst), .clk(clk_out), .d(adder_out[0]), .q(counter[0]));
 	dff d2(.rst(rst), .clk(clk_out), .d(adder_out[1]), .q(counter[1]));
 	dff d3(.rst(rst), .clk(clk_out), .d(adder_out[2]), .q(counter[2]));

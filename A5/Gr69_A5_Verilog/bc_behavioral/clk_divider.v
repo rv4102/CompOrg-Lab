@@ -10,7 +10,7 @@
 
 module clk_divider(input clk, output reg out_clk);
 	reg [31:0] cnt = 32'd0;
-	parameter factor  = 32'd100000000;
+	parameter factor = 32'd100000000;
 	
 	always @(posedge clk) begin
 		cnt <= cnt + 32'd1;
