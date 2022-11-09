@@ -1,0 +1,13 @@
+memory_initialization_radix=10;
+memory_initialization_vector=
+69, 
+169,
+-69,
+47,
+42,
+-100,
+5,
+0,
+269,
+-70,
+-68;
