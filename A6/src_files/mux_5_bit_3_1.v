@@ -8,13 +8,13 @@
 // SEM 5 (Autumn 2022-23)
 //////////////////////////////////////////////////////////////////////////////////
 
-module mux_5_bit_3_1 (input [4:0] a0, input [4:0] a1, input [4:0] a2, input select_line, output [4:0] out);
+module mux_5_bit_3_1 (input [4:0] a0, input [4:0] a1, input [4:0] a2, input [1:0] select_line, output reg [4:0] out);
     always @(*) begin 
         case (select_line)
-            2'b00: out = a0;
-            2'b01: out = a1;
-            2'b10: out = a2;
-            default: 
+            2'b00: out <= a0;
+            2'b01: out <= a1;
+            2'b10: out <= a2;
+				default: out <= a0;
         endcase
     end
 endmodule

@@ -17,7 +17,7 @@ module control_unit (input [5:0] opcode, input [4:0] func,
                      output reg ALUsrc,
                      output reg [4:0] ALUopsel,
                      output reg ALUipsel,
-                     output reg JumpAddr
+                     output reg JumpAddr,
                      output reg isBranch,
                      output reg LabelSel);
 
@@ -51,7 +51,7 @@ module control_unit (input [5:0] opcode, input [4:0] func,
                         JumpAddr = 1'b0;
                         LabelSel = 1'b0;
                     end
-                    default: : begin
+                    default: begin
                         reg_dest = 2'b00;
                         reg_write = 1'b0;
                         mem_read = 1'b0;
@@ -203,7 +203,7 @@ module control_unit (input [5:0] opcode, input [4:0] func,
                         LabelSel = 1'b0;
                     end
                 endcase
-            end
+				end
             6'b000011 : begin
                 reg_dest = 2'b00;
                 reg_write = 1'b1;

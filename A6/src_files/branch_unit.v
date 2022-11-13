@@ -33,8 +33,8 @@ module branch_unit (
 
     and AND1 (isJump, isBranch, validJump);
 
-    mux_32_bit_2_1 M1 (.a0(extendLabel0), .a1(extendLabel1), .sel(labelSel), .out(M1out));
-    mux_32_bit_2_1 M2 (.a0(M1out), .a1(rsAddr), .sel(jumpAddr), .out(M2out));
-    mux_32_bit_2_1 M3 (.a0(PC), .a1(M2out), .sel(isJump), .out(nextAddr));
+    mux_32_bit_2_1 M1 (.a0(extendLabel0), .a1(extendLabel1), .select_line(labelSel), .out(M1out));
+    mux_32_bit_2_1 M2 (.a0(M1out), .a1(rsAddr), .select_line(jumpAddr), .out(M2out));
+    mux_32_bit_2_1 M3 (.a0(PC), .a1(M2out), .select_line(isJump), .out(nextAddr));
     
 endmodule

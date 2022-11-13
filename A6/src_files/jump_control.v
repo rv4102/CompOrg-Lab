@@ -59,6 +59,9 @@ module jump_control(input [31:0] result, input carry, input [5:0] opcode, output
                 else 
                     validJump = 0;
             end
+				default: begin
+					validJump = 0;
+				end
         endcase
     
     end

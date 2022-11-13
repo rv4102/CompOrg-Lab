@@ -181,8 +181,11 @@ def main(source_file, output_file):
             PC = PC + 4
 
     with open(output_file, 'w') as f:
+        f.write('memory_initialization_radix=2;\n')
+        f.write('memory_initialization_vector=\n')
         for instr in instructs:
-            f.write(instr + '\n')
+            f.write(instr + ',\n')
+        f.write(('0' * 32) + ';\n')
 
 
 if __name__ == "__main__":

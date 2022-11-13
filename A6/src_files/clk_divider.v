@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-
 //////////////////////////////////////////////////////////////////////////////////
 // Assignment 6
 // Group 69
@@ -8,6 +7,17 @@
 // SEM 5 (Autumn 2022-23)
 //////////////////////////////////////////////////////////////////////////////////
 
-module mux_32_bit_2_1 (input [31:0] a0, input [31:0] a1, input select_line, output [31:0] out);
-   assign out = (select_line)? a1:a0;
+module clk_divider(input clk, output reg out_clk);
+	reg [31:0] cnt = 32'd0;
+	parameter factor  = 32'd500;
+	
+	always @(posedge clk) begin
+		cnt <= cnt + 32'd1;
+		if(cnt >= (factor-1))
+			cnt <= 32'd0;
+		if(cnt < (factor/2))
+			out_clk <= 1'b1;
+		else
+			out_clk <= 1'b0;
+	end
 endmodule

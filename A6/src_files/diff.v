@@ -8,7 +8,7 @@
 // SEM 5 (Autumn 2022-23)
 //////////////////////////////////////////////////////////////////////////////////
 
-module diff_module(input [31:0] in, output [31:0] out);
+module diff_module(input [31:0] in, output reg [31:0] out);
     always @(*) begin
         case(in)
             32'b00000000000000000000000000000000:begin out = 32'b00000000000000000000000000000000; end
@@ -44,6 +44,7 @@ module diff_module(input [31:0] in, output [31:0] out);
             32'b00100000000000000000000000000000:begin out = 32'b00000000000000000000000000011110; end
             32'b01000000000000000000000000000000:begin out = 32'b00000000000000000000000000011111; end
             32'b10000000000000000000000000000000:begin out = 32'b00000000000000000000000000100000; end
+				default: out = 32'b0;
         endcase
     end
 endmodule

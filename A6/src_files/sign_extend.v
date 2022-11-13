@@ -9,7 +9,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module sign_extend (input [5:0] opcode, input [4:0] func, input [15:0] instruction, output [31:0] out);
+module sign_extend (input [5:0] opcode, input [4:0] func, input [15:0] instruction, output reg [31:0] out);
     
     always @(*) begin
         if(opcode == 6'b000010) begin

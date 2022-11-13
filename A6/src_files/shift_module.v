@@ -13,15 +13,15 @@ module shift_module (input [31:0] A, input [31:0] shamt, input is_left, input is
     always @(*) begin
         if(is_arithmetic) begin
             if(!is_left) begin
-                out = in >>> shamt;
+                out = A >>> shamt;
             end else begin
-                out = in
+                out = A;
             end
         end else begin
             if(!is_left) begin
-                out = in >> shamt
+                out = A >> shamt;
             end else begin
-                out = in << shamt;
+                out = A << shamt;
             end
         end
     end
