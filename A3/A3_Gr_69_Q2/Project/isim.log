@@ -1,0 +1,20 @@
+ISim log file
+Running: C:\Users\Student\Downloads\COA-Lab-Gr69-Assgn-main\COA-Lab-Gr69-Assgn-main\A3\Assgn3_Grp69_Q2\bit_16_TB_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/Student/Downloads/COA-Lab-Gr69-Assgn-main/COA-Lab-Gr69-Assgn-main/A3/Assgn3_Grp69_Q2/bit_16_TB_isim_beh.wdb 
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+A = 65000, B = 65340, cin = 0, sum = 64804, cout = 1
+
+A = 58135, B =  3592, cin = 0, sum = 61727, cout = 0
+
+A =  1005, B =    69, cin = 1, sum =  1075, cout = 0
+
+A = 15124, B =  5383, cin = 1, sum = 20508, cout = 0
+
+A =    50, B = 10024, cin = 0, sum = 10074, cout = 0
+
